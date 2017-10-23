@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Objects
+//  6dof-vr
 //
 //  Created by Bartłomiej Nowak on 22/10/2017.
 //  Copyright © 2017 Bartłomiej Nowak. All rights reserved.
@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let storybard = UIStoryboard(name: Constant.Storyboard.scene, bundle: .main)
-        let controller = storybard.instantiateInitialViewController() as? SceneViewController
+        UIApplication.shared.isIdleTimerDisabled = true
         
-        controller?.presenter = SceneViewPresenter()
+        let storybard = UIStoryboard(name: Constant.Storyboard.scene, bundle: .main)
+        let controller = storybard.instantiateInitialViewController() as? VRViewController
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = controller

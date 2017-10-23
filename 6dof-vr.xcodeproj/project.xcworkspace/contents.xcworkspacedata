@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Objects.xcodeproj">
+      location = "self:/Users/bartlomiej.nowak.h/Development/ios/ARKit/6dof-vr/6dof-vr.xcodeproj">
    </FileRef>
 </Workspace>

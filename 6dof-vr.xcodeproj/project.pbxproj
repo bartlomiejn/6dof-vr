@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9F1C43AD1F9D00C900382370 /* Media.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1C43AC1F9D00B700382370 /* Media.scnassets */; };
-		9F28E5D91F9DBB8100C93D85 /* ScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28E5D81F9DBB8100C93D85 /* ScenePresenter.swift */; };
 		9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */; };
-		9F5E5C791F9CE72600AA6615 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C781F9CE72600AA6615 /* SceneViewController.swift */; };
+		9F5E5C791F9CE72600AA6615 /* VRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C781F9CE72600AA6615 /* VRViewController.swift */; };
 		9F5E5C7C1F9CE72600AA6615 /* Scene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */; };
 		9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */; };
 		9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */; };
@@ -29,15 +28,14 @@
 
 /* Begin PBXFileReference section */
 		9F1C43AC1F9D00B700382370 /* Media.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Media.scnassets; sourceTree = "<group>"; };
-		9F28E5D81F9DBB8100C93D85 /* ScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresenter.swift; sourceTree = "<group>"; };
-		9F5E5C731F9CE72600AA6615 /* Objects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Objects.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F5E5C731F9CE72600AA6615 /* 6dof-vr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6dof-vr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9F5E5C781F9CE72600AA6615 /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
+		9F5E5C781F9CE72600AA6615 /* VRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRViewController.swift; sourceTree = "<group>"; };
 		9F5E5C7B1F9CE72600AA6615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scene.storyboard; sourceTree = "<group>"; };
 		9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F5E5C801F9CE72600AA6615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F5E5C821F9CE72600AA6615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F5E5C871F9CE72600AA6615 /* ObjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F5E5C871F9CE72600AA6615 /* 6dof-vrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "6dof-vrTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5E5C8B1F9CE72600AA6615 /* ObjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsTests.swift; sourceTree = "<group>"; };
 		9F5E5C8D1F9CE72600AA6615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,8 +70,8 @@
 		9F5E5C741F9CE72600AA6615 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9F5E5C731F9CE72600AA6615 /* Objects.app */,
-				9F5E5C871F9CE72600AA6615 /* ObjectsTests.xctest */,
+				9F5E5C731F9CE72600AA6615 /* 6dof-vr.app */,
+				9F5E5C871F9CE72600AA6615 /* 6dof-vrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,8 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */,
-				9F5E5C781F9CE72600AA6615 /* SceneViewController.swift */,
-				9F28E5D81F9DBB8100C93D85 /* ScenePresenter.swift */,
+				9F5E5C781F9CE72600AA6615 /* VRViewController.swift */,
 				9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */,
 				9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */,
 				9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */,
@@ -105,9 +102,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9F5E5C721F9CE72600AA6615 /* Objects */ = {
+		9F5E5C721F9CE72600AA6615 /* 6dof-vr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F5E5C901F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "Objects" */;
+			buildConfigurationList = 9F5E5C901F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "6dof-vr" */;
 			buildPhases = (
 				9F5E5C6F1F9CE72600AA6615 /* Sources */,
 				9F5E5C701F9CE72600AA6615 /* Frameworks */,
@@ -117,14 +114,14 @@
 			);
 			dependencies = (
 			);
-			name = Objects;
+			name = "6dof-vr";
 			productName = Objects;
-			productReference = 9F5E5C731F9CE72600AA6615 /* Objects.app */;
+			productReference = 9F5E5C731F9CE72600AA6615 /* 6dof-vr.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9F5E5C861F9CE72600AA6615 /* ObjectsTests */ = {
+		9F5E5C861F9CE72600AA6615 /* 6dof-vrTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F5E5C931F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "ObjectsTests" */;
+			buildConfigurationList = 9F5E5C931F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "6dof-vrTests" */;
 			buildPhases = (
 				9F5E5C831F9CE72600AA6615 /* Sources */,
 				9F5E5C841F9CE72600AA6615 /* Frameworks */,
@@ -135,9 +132,9 @@
 			dependencies = (
 				9F5E5C891F9CE72600AA6615 /* PBXTargetDependency */,
 			);
-			name = ObjectsTests;
+			name = "6dof-vrTests";
 			productName = ObjectsTests;
-			productReference = 9F5E5C871F9CE72600AA6615 /* ObjectsTests.xctest */;
+			productReference = 9F5E5C871F9CE72600AA6615 /* 6dof-vrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +158,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9F5E5C6E1F9CE72600AA6615 /* Build configuration list for PBXProject "Objects" */;
+			buildConfigurationList = 9F5E5C6E1F9CE72600AA6615 /* Build configuration list for PBXProject "6dof-vr" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -174,8 +171,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9F5E5C721F9CE72600AA6615 /* Objects */,
-				9F5E5C861F9CE72600AA6615 /* ObjectsTests */,
+				9F5E5C721F9CE72600AA6615 /* 6dof-vr */,
+				9F5E5C861F9CE72600AA6615 /* 6dof-vrTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,8 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5E5C791F9CE72600AA6615 /* SceneViewController.swift in Sources */,
-				9F28E5D91F9DBB8100C93D85 /* ScenePresenter.swift in Sources */,
+				9F5E5C791F9CE72600AA6615 /* VRViewController.swift in Sources */,
 				9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,7 +221,7 @@
 /* Begin PBXTargetDependency section */
 		9F5E5C891F9CE72600AA6615 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9F5E5C721F9CE72600AA6615 /* Objects */;
+			target = 9F5E5C721F9CE72600AA6615 /* 6dof-vr */;
 			targetProxy = 9F5E5C881F9CE72600AA6615 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -364,6 +360,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6NDM93MJT;
 				INFOPLIST_FILE = Objects/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bartlomiej-nowak.Objects";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -379,6 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6NDM93MJT;
 				INFOPLIST_FILE = Objects/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bartlomiej-nowak.Objects";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,7 +398,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Objects.app/Objects";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/6dof-vr.app/6dof-vr";
 			};
 			name = Debug;
 		};
@@ -417,14 +415,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Objects.app/Objects";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/6dof-vr.app/6dof-vr";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9F5E5C6E1F9CE72600AA6615 /* Build configuration list for PBXProject "Objects" */ = {
+		9F5E5C6E1F9CE72600AA6615 /* Build configuration list for PBXProject "6dof-vr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F5E5C8E1F9CE72600AA6615 /* Debug */,
@@ -433,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F5E5C901F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "Objects" */ = {
+		9F5E5C901F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "6dof-vr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F5E5C911F9CE72600AA6615 /* Debug */,
@@ -442,7 +440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F5E5C931F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "ObjectsTests" */ = {
+		9F5E5C931F9CE72600AA6615 /* Build configuration list for PBXNativeTarget "6dof-vrTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F5E5C941F9CE72600AA6615 /* Debug */,

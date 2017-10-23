@@ -1,15 +1,15 @@
 //
-//  ObjectsTests.swift
-//  ObjectsTests
+//  6dof-vrTests.swift
+//  6dof-vrTests
 //
 //  Created by Bartłomiej Nowak on 22/10/2017.
 //  Copyright © 2017 Bartłomiej Nowak. All rights reserved.
 //
 
 import XCTest
-@testable import Objects
+@testable import 6dof-vr
 
-class ObjectsTests: XCTestCase {
+class 6dof-vrTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
