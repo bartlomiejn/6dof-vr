@@ -50,29 +50,17 @@ final class VRViewController: UIViewController {
         setup(rightSceneView)
         
         addBoxNodes(count: 40)
-        setupPlaneNode()
-        setupPointOfViewNodes()
+        addPlaneNode()
         
+        setupPointOfViewNodes()
         setupPanGestureRecognizer()
         
         startARSession()
         startMotionUpdates()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        setSceneViewPlaying(to: true)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        setSceneViewPlaying(to: false)
-    }
-    
     private func setupCamera(_ camera: SCNCamera) {
-        camera.fieldOfView = 90.0
+        camera.fieldOfView = 110.0
         camera.zNear = 0.1
         camera.zFar = 100.0
     }
@@ -104,7 +92,7 @@ final class VRViewController: UIViewController {
         }
     }
 
-    private func setupPlaneNode() {
+    private func addPlaneNode() {
         let plane = SCNNode(geometry: SCNPlane(width: 50.0, height: 50.0))
         
         plane.position = SCNVector3(0.0, -0.5, 0.0)
@@ -119,8 +107,8 @@ final class VRViewController: UIViewController {
         leftCameraNode.camera = leftCamera
         rightCameraNode.camera = rightCamera
         
-        leftCameraNode.position = SCNVector3(-Constant.Distance.interpupilary /*/ 2.0*/, 1.75, 0.0)
-        rightCameraNode.position = SCNVector3(Constant.Distance.interpupilary /*/ 2.0*/, 1.75, 0.0)
+        leftCameraNode.position = SCNVector3(-Constant.Distance.interpupilary / 2.0, 1.75, 0.0)
+        rightCameraNode.position = SCNVector3(Constant.Distance.interpupilary / 2.0, 1.75, 0.0)
         
         scene.rootNode.addChildNode(leftCameraNode)
         scene.rootNode.addChildNode(rightCameraNode)
@@ -146,7 +134,10 @@ final class VRViewController: UIViewController {
                 }
                 
                 viewportPosition = viewportPosition
-                    + SCNVector3(lastPanTranslation.x - translation.x, 0.0, lastPanTranslation.y - translation.y)
+                    + SCNVector3(
+                        (lastPanTranslation.x - translation.x * 0.02),
+                        0.0,
+                        (lastPanTranslation.y - translation.y) * 0.02)
                 
                 self.lastPanTranslation = translation
             default:
@@ -181,11 +172,6 @@ final class VRViewController: UIViewController {
             )
         }
     }
-    
-    private func setSceneViewPlaying(to isPlaying: Bool) {
-        leftSceneView.isPlaying = isPlaying
-        rightSceneView.isPlaying = isPlaying
-    }
 }
 
 extension VRViewController: ARSessionDelegate {
@@ -195,13 +181,13 @@ extension VRViewController: ARSessionDelegate {
         
         leftCameraNode.position =
             SCNVector3(
-                translationColumn.x - Float(Constant.Distance.interpupilary),
+                translationColumn.x - Float(Constant.Distance.interpupilary / 2.0),
                 translationColumn.y,
                 translationColumn.z)
             + viewportPosition
         rightCameraNode.position =
             SCNVector3(
-                translationColumn.x + Float(Constant.Distance.interpupilary),
+                translationColumn.x + Float(Constant.Distance.interpupilary / 2.0),
                 translationColumn.y,
                 translationColumn.z)
             + viewportPosition
