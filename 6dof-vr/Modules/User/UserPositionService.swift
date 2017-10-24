@@ -13,7 +13,7 @@ final class UserPositionService: NSObject {
     
     var onPositionUpdate: ((SCNVector3) -> Void)?
     
-    var positionOffset = SCNVector3(0.0, 0.0, 0.0)
+    var positionOffset = SCNVector3(0.0, 1.75, 0.0)
     
     private let session: ARSession
     private let configuration = ARWorldTrackingConfiguration()
@@ -33,22 +33,7 @@ extension UserPositionService: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         let translationColumn = frame.camera.transform.columns.3
         
-        print("translation: \(translationColumn)")
-        
         onPositionUpdate?(
-            SCNVector3(translationColumn.x, translationColumn.y, translationColumn.z) + positionOffset)
-        
-//        leftCameraNode.position =
-//            SCNVector3(
-//                translationColumn.x - Float(Distance.pupillary / 2.0),
-//                translationColumn.y,
-//                translationColumn.z)
-//            + viewportPosition
-//        rightCameraNode.position =
-//            SCNVector3(
-//                translationColumn.x + Float(Distance.pupillary / 2.0),
-//                translationColumn.y,
-//                translationColumn.z)
-//            + viewportPosition
+            SCNVector3(translationColumn.x * 3, translationColumn.y * 3, translationColumn.z * 3) + positionOffset)
     }
 }

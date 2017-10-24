@@ -10,28 +10,39 @@ import Foundation
 import CoreMotion
 import ARKit
 
+struct InjectorUnavailable: Error {}
+
 protocol InjectionService: class {
     typealias Injector = (Any) -> Void
     
     var injectors: [AnyHashable: Injector] { get set }
     
-    func addInjector<T>(for type: T, injector: @escaping Injector)
-    func injector<T>(for type: T) -> Injector?
+    func addInjector<T>(for type: T.Type, injector: @escaping Injector)
+    func injector<T>(for type: T.Type) -> Injector?
+    func injectDependencies<T>(into object: T)
 }
 
 extension InjectionService {
     
-    func addInjector<T>(for type: T, injector: @escaping Injector) {
+    func addInjector<T>(for type: T.Type, injector: @escaping Injector) {
         injectors[String(reflecting: type)] = injector
     }
     
-    func injector<T>(for type: T) -> Injector? {
+    func injector<T>(for type: T.Type) -> Injector? {
         return injectors[String(reflecting: type)]
+    }
+    
+    func injectDependencies<T>(into object: T) {
+        if let inject = injectors[String(reflecting: T.self)] {
+            inject(object)
+        } else {
+            assertionFailure("No injector registered for type \(T.self).")
+        }
     }
 }
 
 final class AppInjectionService: InjectionService {
-    
+
     var injectors: [AnyHashable: Injector] = [:]
     
     private let motionManager = CMMotionManager()

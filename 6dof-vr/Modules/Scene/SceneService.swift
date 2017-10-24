@@ -15,7 +15,7 @@ final class SceneService {
         enum Camera {
             static let nearPlane: Double = 0.1
             static let farPlane: Double = 100.0
-            static let fieldOfView: CGFloat = 110.0
+            static let fieldOfView: CGFloat = 100.0
         }
         
         enum Distance {
@@ -23,8 +23,8 @@ final class SceneService {
             static let recognizerMultiplier: CGFloat = 0.01
         }
         
-        static let leftEyeTranslation = SCNVector3(-Float(0.1 / 2.0), 0.0, 0.0)
-        static let rightEyeTranslation = SCNVector3(Float(0.1 / 2.0), 0.0, 0.0)
+        static let leftEyeTranslation = SCNVector3(-Float(Distance.pupillary / 2.0), 0.0, 0.0)
+        static let rightEyeTranslation = SCNVector3(Float(Distance.pupillary / 2.0), 0.0, 0.0)
     }
     
     weak var view: VRViewType!
@@ -45,8 +45,8 @@ final class SceneService {
         setupCamera(leftCamera)
         setupCamera(rightCamera)
         
-        addBoxNodes(count: 40)
-        addPlaneNode()
+        addBoxNodes(count: 200)
+        addFloorNode()
         
         addBackground()
         addDirectionalLighting()
@@ -74,18 +74,21 @@ final class SceneService {
     
     private func addBoxNodes(count: Int) {
         for _ in 0..<count {
+            let randomHeight = CGFloat.random(lowerLimit: 1.0, upperLimit: 20.0)
             let box = SCNNode(geometry:
                 SCNBox(
-                    width: random(lowerLimit: 0.2, upperLimit: 1.0),
-                    height: random(lowerLimit: 0.5, upperLimit: 6.0),
-                    length: random(lowerLimit: 0.2, upperLimit: 1.0),
+                    width: CGFloat.random(lowerLimit: 0.5, upperLimit: 3.0),
+                    height: randomHeight,
+                    length: CGFloat.random(lowerLimit: 0.5, upperLimit: 3.0),
                     chamferRadius: 0.0))
             
             box.position = SCNVector3(
-                random(lowerLimit: -10.0, upperLimit: 10.0),
+                CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0),
                 0.0,
-                random(lowerLimit: -10.0, upperLimit: -1.0))
+                CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0))
             
+            box.pivot = SCNMatrix4MakeTranslation(0.0, -Float(randomHeight / 2.0), 0.0)
+
             box.geometry?.firstMaterial?.lightingModel = .physicallyBased
             box.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
             box.geometry?.firstMaterial?.roughness.contents = UIColor.darkGray
@@ -95,16 +98,18 @@ final class SceneService {
         }
     }
     
-    private func addPlaneNode() {
-        let plane = SCNNode(geometry: SCNPlane(width: 100.0, height: 100.0))
+    private func addFloorNode() {
+        let floor = SCNFloor()
         
-        plane.position = SCNVector3(0.0, -0.5, 0.0)
-        plane.eulerAngles = SCNVector3(90.degreesToRadians, 0.0, 0.0)
+        floor.reflectivity = 0.3
+        
+        let plane = SCNNode(geometry: floor)
+        
+        plane.position = SCNVector3(0.0, 0.0, 0.0)
         plane.geometry?.firstMaterial?.lightingModel = .physicallyBased
         plane.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
         plane.geometry?.firstMaterial?.roughness.contents = UIColor.darkGray
         plane.geometry?.firstMaterial?.metalness.contents = UIColor.darkGray
-        plane.geometry?.firstMaterial?.isDoubleSided = true
         
         scene.rootNode.addChildNode(plane)
     }

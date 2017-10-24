@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storybard = UIStoryboard(name: Constant.Storyboard.scene, bundle: .main)
         let controller = storybard.instantiateInitialViewController() as? VRViewController
-        
-        injectionService.injector(for: VRViewController.self)?(controller as Any)
+     
+        injectionService.injectDependencies(into: controller)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = controller

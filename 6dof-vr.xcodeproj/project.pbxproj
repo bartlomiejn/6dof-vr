@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9F1C43AD1F9D00C900382370 /* Media.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1C43AC1F9D00B700382370 /* Media.scnassets */; };
+		9F5DB0571F9FCA42002C9A7D /* Int+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0561F9FCA42002C9A7D /* Int+DegreesToRadians.swift */; };
+		9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */; };
+		9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */; };
 		9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */; };
 		9F5E5C7C1F9CE72600AA6615 /* Scene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */; };
 		9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		9F1C43AC1F9D00B700382370 /* Media.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Media.scnassets; sourceTree = "<group>"; };
+		9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector+Operators.swift"; sourceTree = "<group>"; };
+		9F5DB0561F9FCA42002C9A7D /* Int+DegreesToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DegreesToRadians.swift"; sourceTree = "<group>"; };
+		9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Random.swift"; sourceTree = "<group>"; };
 		9F5E5C731F9CE72600AA6615 /* 6dof-vr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6dof-vr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F5E5C7B1F9CE72600AA6615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scene.storyboard; sourceTree = "<group>"; };
@@ -66,6 +72,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F5DB0501F9FC9E6002C9A7D /* Auxiliary */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB0541F9FCA1C002C9A7D /* Extensions */,
+			);
+			path = Auxiliary;
+			sourceTree = "<group>";
+		};
+		9F5DB0541F9FCA1C002C9A7D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */,
+				9F5DB0561F9FCA42002C9A7D /* Int+DegreesToRadians.swift */,
+				9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9F5E5C6A1F9CE72600AA6615 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				9F7863D91F9FB52E00C73E1E /* Modules */,
+				9F5DB0501F9FC9E6002C9A7D /* Auxiliary */,
 				9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */,
 				9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */,
 				9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */,
@@ -260,6 +285,9 @@
 				9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */,
 				9F7863E31F9FB7F000C73E1E /* UserOrientationService.swift in Sources */,
 				9F7863E21F9FB57800C73E1E /* UserPositionService.swift in Sources */,
+				9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */,
+				9F5DB0571F9FCA42002C9A7D /* Int+DegreesToRadians.swift in Sources */,
+				9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */,
 				9F7863E51F9FB7F800C73E1E /* VRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

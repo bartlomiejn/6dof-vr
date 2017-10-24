@@ -111,19 +111,3 @@ extension VRViewController: VRViewType {
         rightSceneView.pointOfView = rightCameraNode
     }
 }
-
-func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
-    return SCNVector3(left.x + right.x, left.y + right.y, left.z + right.z)
-}
-
-func -(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
-    return SCNVector3(left.x - right.x, left.y - right.y, left.z - right.z)
-}
-
-extension Int {
-    var degreesToRadians: Double { return Double(self) * .pi / 180 }
-}
-
-func random(lowerLimit: CGFloat, upperLimit: CGFloat) -> CGFloat {
-    return lowerLimit + (upperLimit - lowerLimit) * (CGFloat(arc4random()) / CGFloat(UInt32.max))
-}
