@@ -33,6 +33,8 @@ extension UserPositionService: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         let translationColumn = frame.camera.transform.columns.3
         
+        print("translation: \(translationColumn)")
+        
         onPositionUpdate?(
             SCNVector3(translationColumn.x, translationColumn.y, translationColumn.z) + positionOffset)
         

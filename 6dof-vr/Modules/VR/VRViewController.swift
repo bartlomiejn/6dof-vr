@@ -40,6 +40,8 @@ final class VRViewController: UIViewController {
         setup(leftSceneView)
         setup(rightSceneView)
         
+        sceneService.setupScene()
+        
         setupMovementPanGestureRecognizer()
         setupPositionUpdates()
         setupOrientationUpdates()

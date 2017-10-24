@@ -22,6 +22,9 @@ final class SceneService {
             static let pupillary: CGFloat = 0.066        // Distance between eyes in meters
             static let recognizerMultiplier: CGFloat = 0.01
         }
+        
+        static let leftEyeTranslation = SCNVector3(-Float(0.1 / 2.0), 0.0, 0.0)
+        static let rightEyeTranslation = SCNVector3(Float(0.1 / 2.0), 0.0, 0.0)
     }
     
     weak var view: VRViewType!
@@ -47,11 +50,15 @@ final class SceneService {
         
         addBackground()
         addDirectionalLighting()
+        
+        setupPointOfViewNodes()
+        
+        view.setPointOfView(leftCameraNode: leftCameraNode, rightCameraNode: rightCameraNode)
     }
     
     func updated(userPosition: SCNVector3) {
-        leftCameraNode.position = userPosition - SCNVector3(Float(Constant.Distance.pupillary / 2.0), 0.0, 0.0)
-        rightCameraNode.position = userPosition + SCNVector3(Float(Constant.Distance.pupillary / 2.0), 0.0, 0.0)
+        leftCameraNode.position = userPosition + Constant.leftEyeTranslation
+        rightCameraNode.position = userPosition + Constant.rightEyeTranslation
     }
     
     func updated(userOrientation: SCNVector3) {
@@ -135,7 +142,5 @@ final class SceneService {
         
         scene.rootNode.addChildNode(leftCameraNode)
         scene.rootNode.addChildNode(rightCameraNode)
-        
-        view.setPointOfView(leftCameraNode: leftCameraNode, rightCameraNode: rightCameraNode)
     }
 }
