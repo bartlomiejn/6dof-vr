@@ -39,8 +39,9 @@ final class VRViewController: UIViewController {
         setup(leftSceneView)
         setup(rightSceneView)
         
-        world.setupCamera()
+        motionService.mode = .threeDoF
         world.setupMotionProvider(with: motionService)
+        world.setupCamera()
         
         setupMovementPanRecognizer()
     }

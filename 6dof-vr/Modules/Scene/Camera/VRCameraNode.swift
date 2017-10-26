@@ -48,13 +48,16 @@ final class VRCameraNode: SCNNode {
         setupCamera(right)
         
         leftNode.camera = left
-        leftNode.position = Constant.Translation.leftEye
-        
         rightNode.camera = right
-        rightNode.position = Constant.Translation.rightEye
         
         addChildNode(leftNode)
         addChildNode(rightNode)
+        
+        leftNode.position = Constant.Translation.leftEye
+        rightNode.position = Constant.Translation.rightEye
+        
+        leftNode.pivot = SCNMatrix4MakeTranslation(Float(Constant.Distance.pupillary / 2.0), 0.0, 0.0)
+        rightNode.pivot = SCNMatrix4MakeTranslation(-Float(Constant.Distance.pupillary / 2.0), 0.0, 0.0)
     }
     
     private func setupCamera(_ camera: SCNCamera) {

@@ -34,9 +34,9 @@ final class OrientationService {
         motionManager.startDeviceMotionUpdates(to: .main) { [weak self] deviceMotion, error in
             
             let orientation = SCNVector3(
-                -Float(deviceMotion!.attitude.roll) - (Float.pi / 2.0),
-                Float(deviceMotion!.attitude.yaw),
-                -Float(deviceMotion!.attitude.pitch))
+                deviceMotion!.attitude.roll - Double.pi / 2.0,
+                deviceMotion!.attitude.yaw,
+                deviceMotion!.attitude.pitch)
             
             self?.onOrientationUpdate?(orientation)
         }

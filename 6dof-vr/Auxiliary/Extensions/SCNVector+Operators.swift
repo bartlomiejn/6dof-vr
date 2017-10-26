@@ -15,3 +15,7 @@ func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
 func -(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
     return SCNVector3(left.x - right.x, left.y - right.y, left.z - right.z)
 }
+
+prefix func -(rhs: SCNVector3) -> SCNVector3 {
+    return SCNVector3(-rhs.x, -rhs.y, -rhs.z)
+}

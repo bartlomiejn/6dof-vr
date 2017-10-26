@@ -57,10 +57,10 @@ final class PlayerNode: SCNNode {
     }
     
     private func updateNodePosition() {
-        position = playerWorldPosition + motionPosition
+        position = motionPosition
     }
     
     private func updateNodeOrientation() {
-        eulerAngles = motionOrientation
+        cameraNode.eulerAngles = motionOrientation
     }
 }

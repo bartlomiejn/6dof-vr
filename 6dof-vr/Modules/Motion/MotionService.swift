@@ -44,18 +44,16 @@ final class MotionService: MotionDataProvider {
     init(orientationService: OrientationService, positionService: PositionService) {
         self.orientationService = orientationService
         self.positionService = positionService
+        
+        setupOrientationServiceCallback()
+        setupPositionServiceCallback()
     }
     
     func startMotionUpdates() {
         switch mode {
         case .threeDoF:
-            setupOrientationServiceCallback()
-            
             orientationService.startOrientationUpdates()
         case .sixDoF:
-            setupOrientationServiceCallback()
-            setupPositionServiceCallback()
-            
             orientationService.startOrientationUpdates()
             positionService.startPositionUpdates()
         }
