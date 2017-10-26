@@ -25,7 +25,8 @@ final class PlayerNode: SCNNode {
     private var playerWorldPosition: SCNVector3
     
     private var motionPosition = SCNVector3Zero
-    private var motionOrientation = SCNVector3Zero
+    private var motionEulerAngles = SCNVector3Zero
+    private var motionQuaternion = SCNVector4Zero
     
     init(startingPosition: SCNVector3, camera: VRCameraNode) {
         playerWorldPosition = startingPosition
@@ -44,7 +45,8 @@ final class PlayerNode: SCNNode {
     
     func updatePosition(with motionData: MotionData) {
         motionPosition = motionData.position
-        motionOrientation = motionData.orientation
+//        motionEulerAngles = motionData.eulerAngles
+        motionQuaternion = motionData.quaternion
         
         updateNodePosition()
         updateNodeOrientation()
@@ -61,6 +63,6 @@ final class PlayerNode: SCNNode {
     }
     
     private func updateNodeOrientation() {
-        cameraNode.eulerAngles = motionOrientation
+        cameraNode.rotation = motionQuaternion
     }
 }

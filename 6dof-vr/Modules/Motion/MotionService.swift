@@ -11,10 +11,12 @@ import SceneKit
 
 struct MotionData {
     
-    static var zero: MotionData = MotionData(position: SCNVector3Zero, orientation: SCNVector3Zero)
+    static var zero: MotionData = MotionData(position: SCNVector3Zero, eulerAngles: SCNVector3Zero, quaternion: SCNVector4Zero)
     
     let position: SCNVector3
-    let orientation: SCNVector3
+    
+    let eulerAngles: SCNVector3
+    let quaternion: SCNVector4
 }
 
 protocol MotionDataProvider: class {
@@ -38,8 +40,9 @@ final class MotionService: MotionDataProvider {
     private let orientationService: OrientationService
     private let positionService: PositionService
     
-    private (set) var currentPosition = SCNVector3(0.0, 0.0, 0.0)
-    private (set) var currentOrientation = SCNVector3(0.0, 0.0, 0.0)
+    private (set) var currentPosition = SCNVector3Zero
+    private (set) var currentEulerAngles = SCNVector3Zero
+    private (set) var currentQuaternion = SCNVector4Zero
     
     init(orientationService: OrientationService, positionService: PositionService) {
         self.orientationService = orientationService
@@ -60,8 +63,12 @@ final class MotionService: MotionDataProvider {
     }
     
     private func setupOrientationServiceCallback() {
-        orientationService.onOrientationUpdate = { [weak self] orientation in
-            self?.currentOrientation = orientation
+//        orientationService.onEulerAnglesUpdate = { [weak self] eulerAngles in
+//            self?.currentEulerAngles = eulerAngles
+//            self?.doMotionUpdate()
+//        }
+        orientationService.onAxisAngleQuaternionUpdate = { [weak self] quaternion in
+            self?.currentQuaternion = quaternion
             self?.doMotionUpdate()
         }
     }
@@ -74,6 +81,6 @@ final class MotionService: MotionDataProvider {
     }
     
     private func doMotionUpdate() {
-        onMotionUpdate?(.init(position: currentPosition, orientation: currentOrientation))
+        onMotionUpdate?(.init(position: currentPosition, eulerAngles: currentEulerAngles, quaternion: currentQuaternion))
     }
 }

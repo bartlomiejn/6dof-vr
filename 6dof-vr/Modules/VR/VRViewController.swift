@@ -44,6 +44,8 @@ final class VRViewController: UIViewController {
         world.setupCamera()
         
         setupMovementPanRecognizer()
+        
+        leftSceneView.showsStatistics = true
     }
     
     @objc private func pannedView(recognizer: UIPanGestureRecognizer) {
@@ -61,7 +63,7 @@ final class VRViewController: UIViewController {
 
     private func setup(_ sceneView: SCNView) {
         sceneView.scene = world.scene
-        sceneView.preferredFramesPerSecond = 60
+        sceneView.preferredFramesPerSecond = 120
         sceneView.autoenablesDefaultLighting = false
         sceneView.antialiasingMode = .multisampling4X
     }

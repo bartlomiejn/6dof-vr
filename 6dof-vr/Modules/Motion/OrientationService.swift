@@ -12,7 +12,8 @@ import CoreMotion
 
 final class OrientationService {
     
-    var onOrientationUpdate: ((SCNVector3) -> Void)?
+    var onEulerAnglesUpdate: ((SCNVector3) -> Void)?
+    var onAxisAngleQuaternionUpdate: ((SCNVector4) -> Void)?
     
     var updateInterval = 1.0 / 60.0 {
         didSet {
@@ -31,15 +32,43 @@ final class OrientationService {
             return
         }
         
-        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] deviceMotion, error in
+        motionManager.deviceMotionUpdateInterval = 1.0 / 120.0
+        
+        motionManager.startDeviceMotionUpdates(to: .main) { [weak self] deviceMotion, _ in
+            guard let deviceMotion = deviceMotion else {
+                return
+            }
             
-            let orientation = SCNVector3(
-                deviceMotion!.attitude.roll - Double.pi / 2.0,
-                deviceMotion!.attitude.yaw,
-                deviceMotion!.attitude.pitch)
+            let thetaQuat = deviceMotion.attitude.quaternion
+
+            var s = sqrt(1 - thetaQuat.w * thetaQuat.w)
             
-            self?.onOrientationUpdate?(orientation)
+            if s == 0 {
+                s = 0.0001
+            }
+            
+            let axisAngleQuat = SCNVector4(
+                -(thetaQuat.y / s),
+                thetaQuat.x / s,
+                thetaQuat.z / s,
+                2 * acos(thetaQuat.w))           // Angle in radians
+            
+//            let eulerAngles = SCNVector3(
+//                -deviceMotion!.attitude.roll - Double.pi / 2.0,
+//                deviceMotion!.attitude.yaw,
+//                -deviceMotion!.attitude.pitch)
+//
+//            self?.onEulerAnglesUpdate?(SCNVector3(roll, pitch, yaw))
+            
+            self?.onAxisAngleQuaternionUpdate?(axisAngleQuat)
         }
+    }
+}
+
+extension Double {
+    
+    var radiansToDegrees: Double {
+        return self * (180 / .pi)
     }
 }
 
