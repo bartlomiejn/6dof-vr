@@ -50,20 +50,17 @@ final class AppInjectionService: InjectionService {
     
     private let appScene = SCNScene()
     
-    private lazy var orientationService = OrientationService(motionManager: motionManager)
-    private lazy var positionService = PositionService(session: arSession)
-    
     private lazy var motionService = MotionService(
-        orientationService: orientationService,
-        positionService: positionService)
+        orientationService: OrientationService(motionManager: motionManager),
+        positionService: PositionService(session: arSession))
     
     init() {
         addInjector(for: VRViewController.self) { [unowned motionService, unowned appScene] in
             let controller = ($0 as? VRViewController)
             
             controller?.motionService = motionService
-            controller?.sceneService = SceneService(scene: appScene)
-            controller?.sceneService.view = controller
+            controller?.world = World(scene: appScene)
+            controller?.world.view = controller
         }
     }
 }

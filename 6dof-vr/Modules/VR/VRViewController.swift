@@ -13,39 +13,6 @@ protocol VRViewType: class {
     func setPointOfView(to node: VRCameraNode)
 }
 
-final class Player {
-    
-    private (set) var node: SCNNode
-    
-    var position: SCNVector3 {
-        return userPosition + motionPosition
-    }
-    var orientation: SCNVector3 {
-        return userOrientation + motionOrientation
-    }
-    
-    private var userPosition: SCNVector3
-    private var userOrientation: SCNVector3
-    
-    private var motionPosition = SCNVector3Zero
-    private var motionOrientation = SCNVector3Zero
-    
-    init(startingPosition: SCNVector3, startingOrientation: SCNVector3, node: SCNNode) {
-        userPosition = startingPosition
-        userOrientation = startingOrientation
-        self.node = node
-    }
-    
-    func updateMotion(with motionData: MotionData) {
-        motionPosition = motionData.position
-        motionOrientation = motionData.orientation
-    }
-    
-    func move(to position: SCNVector3) {
-        self.userPosition = position
-    }
-}
-
 final class VRViewController: UIViewController {
     
     enum Constant {
@@ -58,8 +25,7 @@ final class VRViewController: UIViewController {
     @IBOutlet fileprivate weak var rightSceneView: SCNView!
     
     var motionService: MotionService!
-    var sceneService: SceneService!
-    var player: Player!
+    var world: World!
     
     private var lastPanTranslation: CGPoint?
     
@@ -73,28 +39,27 @@ final class VRViewController: UIViewController {
         setup(leftSceneView)
         setup(rightSceneView)
         
-        sceneService.setupCamera()
-        
-        setupMotionUpdates()
+        world.setupCamera()
+        world.setupMotionProvider(with: motionService)
         
         setupMovementPanRecognizer()
     }
     
     @objc private func pannedView(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: view)
+        let currentTranslation = recognizer.translation(in: view)
         
         switch recognizer.state {
         case .began:
-            lastPanTranslation = translation
+            lastPanTranslation = currentTranslation
         case .changed:
-            setUserPositionOffset(with: translation)
+            movePlayer(with: currentTranslation)
         default:
             lastPanTranslation = nil
         }
     }
 
     private func setup(_ sceneView: SCNView) {
-        sceneView.scene = sceneService.scene
+        sceneView.scene = world.scene
         sceneView.preferredFramesPerSecond = 60
         sceneView.autoenablesDefaultLighting = false
         sceneView.antialiasingMode = .multisampling4X
@@ -105,29 +70,16 @@ final class VRViewController: UIViewController {
         view.addGestureRecognizer(recognizer)
     }
     
-    private func setupMotionUpdates() {
-        motionService.onMotionUpdate = { [weak player, weak sceneService] motion in
-            player?.updateMotion(with: motion)
-            sceneService?.updated(userPosition: motion.position)
-            sceneService?.updated(userOrientation: motion.orientation)
-        }
-        
-        motionService.mode = .sixDoF
-        
-        motionService.startMotionUpdates()
-    }
-    
-    private func setUserPositionOffset(with translation: CGPoint) {
+    private func movePlayer(with translation: CGPoint) {
         guard let lastPanTranslation = lastPanTranslation else {
             return
         }
         
-//        userPositionService.positionOffset =
-//            userPositionService.positionOffset
-//            + SCNVector3(
-//                (lastPanTranslation.x - translation.x) * Constant.Distance.recognizerMultiplier,
-//                0.0,
-//                (lastPanTranslation.y - translation.y) * Constant.Distance.recognizerMultiplier)
+        world.movePlayer(to:
+            SCNVector3(
+                (lastPanTranslation.x - translation.x) * Constant.Distance.recognizerMultiplier,
+                0.0,
+                (lastPanTranslation.y - translation.y) * Constant.Distance.recognizerMultiplier))
         
         self.lastPanTranslation = translation
     }

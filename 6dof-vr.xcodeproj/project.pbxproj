@@ -25,6 +25,7 @@
 		9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */; };
 		9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */; };
 		9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C501FA23562004E3E51 /* VRCameraNode.swift */; };
+		9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C531FA23743004E3E51 /* PlayerNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentBuilder.swift; sourceTree = "<group>"; };
 		9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentLightingBuilder.swift; sourceTree = "<group>"; };
 		9FEA5C501FA23562004E3E51 /* VRCameraNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRCameraNode.swift; sourceTree = "<group>"; };
+		9FEA5C531FA23743004E3E51 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		9F7863E61F9FBEA500C73E1E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				9FEA5C521FA23730004E3E51 /* Player */,
 				9FEA5C4F1FA23550004E3E51 /* Camera */,
 				9FEA5C4A1FA234FC004E3E51 /* Environment */,
 				9F7863E71F9FBEAD00C73E1E /* SceneService.swift */,
@@ -202,6 +205,14 @@
 				9FEA5C501FA23562004E3E51 /* VRCameraNode.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		9FEA5C521FA23730004E3E51 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				9FEA5C531FA23743004E3E51 /* PlayerNode.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */,
 				9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */,
 				9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */,
 				9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */,

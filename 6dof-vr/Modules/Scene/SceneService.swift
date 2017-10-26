@@ -8,30 +8,42 @@
 
 import SceneKit
 
-final class SceneService {
+final class World {
     
     weak var view: VRViewType!
     
     let scene: SCNScene
-    let camera = VRCameraNode()
+    
+    private let player: PlayerNode
+    
+    private weak var motionProvider: MotionDataProvider!
     
     init(scene: SCNScene) {
         self.scene = scene
         
         EnvironmentBuilder().populate(scene)
         EnvironmentLightingBuilder().addLighting(to: scene)
+        
+        player = PlayerNode(startingPosition: SCNVector3Zero, camera: VRCameraNode())
+        
+        scene.rootNode.addChildNode(player)
+    }
+    
+    func setupMotionProvider(with provider: MotionDataProvider) {
+        motionProvider = provider
+        
+        motionProvider!.onMotionUpdate = { [weak player] motionData in
+            player?.updatePosition(with: motionData)
+        }
+        
+        motionProvider!.startMotionUpdates()
     }
     
     func setupCamera() {
-        scene.rootNode.addChildNode(camera)
-        view.setPointOfView(to: camera)
+        view.setPointOfView(to: player.cameraNode)
     }
     
-    func updated(userPosition: SCNVector3) {
-        camera.position = userPosition
-    }
-    
-    func updated(userOrientation: SCNVector3) {
-        camera.eulerAngles = userOrientation
+    func movePlayer(to position: SCNVector3) {
+        player.move(to: position)
     }
 }

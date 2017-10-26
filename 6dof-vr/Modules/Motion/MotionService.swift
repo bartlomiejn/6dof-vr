@@ -17,7 +17,12 @@ struct MotionData {
     let orientation: SCNVector3
 }
 
-final class MotionService {
+protocol MotionDataProvider: class {
+    var onMotionUpdate: ((MotionData) -> Void)? { get set }
+    func startMotionUpdates()
+}
+
+final class MotionService: MotionDataProvider {
     
     enum GatheringMode {
         case threeDoF
@@ -26,7 +31,7 @@ final class MotionService {
     
     var onMotionUpdate: ((MotionData) -> Void)?
     
-    var mode: GatheringMode = .threeDoF {
+    var mode: GatheringMode = .sixDoF {
         didSet { startMotionUpdates() }
     }
     
@@ -59,6 +64,7 @@ final class MotionService {
     private func setupOrientationServiceCallback() {
         orientationService.onOrientationUpdate = { [weak self] orientation in
             self?.currentOrientation = orientation
+            self?.doMotionUpdate()
         }
     }
     
