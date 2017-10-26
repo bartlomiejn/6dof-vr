@@ -10,7 +10,40 @@ import UIKit
 import SceneKit
 
 protocol VRViewType: class {
-    func setPointOfView(leftCameraNode: SCNNode, rightCameraNode: SCNNode)
+    func setPointOfView(to node: VRCameraNode)
+}
+
+final class Player {
+    
+    private (set) var node: SCNNode
+    
+    var position: SCNVector3 {
+        return userPosition + motionPosition
+    }
+    var orientation: SCNVector3 {
+        return userOrientation + motionOrientation
+    }
+    
+    private var userPosition: SCNVector3
+    private var userOrientation: SCNVector3
+    
+    private var motionPosition = SCNVector3Zero
+    private var motionOrientation = SCNVector3Zero
+    
+    init(startingPosition: SCNVector3, startingOrientation: SCNVector3, node: SCNNode) {
+        userPosition = startingPosition
+        userOrientation = startingOrientation
+        self.node = node
+    }
+    
+    func updateMotion(with motionData: MotionData) {
+        motionPosition = motionData.position
+        motionOrientation = motionData.orientation
+    }
+    
+    func move(to position: SCNVector3) {
+        self.userPosition = position
+    }
 }
 
 final class VRViewController: UIViewController {
@@ -24,9 +57,9 @@ final class VRViewController: UIViewController {
     @IBOutlet fileprivate weak var leftSceneView: SCNView!
     @IBOutlet fileprivate weak var rightSceneView: SCNView!
     
-    var userOrientationService: UserOrientationService!
-    var userPositionService: UserPositionService!
+    var motionService: MotionService!
     var sceneService: SceneService!
+    var player: Player!
     
     private var lastPanTranslation: CGPoint?
     
@@ -40,11 +73,11 @@ final class VRViewController: UIViewController {
         setup(leftSceneView)
         setup(rightSceneView)
         
-        sceneService.setupScene()
+        sceneService.setupCamera()
         
-        setupMovementPanGestureRecognizer()
-        setupPositionUpdates()
-        setupOrientationUpdates()
+        setupMotionUpdates()
+        
+        setupMovementPanRecognizer()
     }
     
     @objc private func pannedView(recognizer: UIPanGestureRecognizer) {
@@ -67,25 +100,21 @@ final class VRViewController: UIViewController {
         sceneView.antialiasingMode = .multisampling4X
     }
     
-    private func setupMovementPanGestureRecognizer() {
+    private func setupMovementPanRecognizer() {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(pannedView))
         view.addGestureRecognizer(recognizer)
     }
     
-    private func setupPositionUpdates() {
-        userPositionService.onPositionUpdate = { [weak sceneService] position in
-            sceneService?.updated(userPosition: position)
+    private func setupMotionUpdates() {
+        motionService.onMotionUpdate = { [weak player, weak sceneService] motion in
+            player?.updateMotion(with: motion)
+            sceneService?.updated(userPosition: motion.position)
+            sceneService?.updated(userOrientation: motion.orientation)
         }
         
-        userPositionService.startPositionUpdates()
-    }
-    
-    private func setupOrientationUpdates() {
-        userOrientationService.onOrientationUpdate = { [weak sceneService] eulerAnglesMatrix in
-            sceneService?.updated(userOrientation: eulerAnglesMatrix)
-        }
+        motionService.mode = .sixDoF
         
-        userOrientationService.startOrientationUpdates()
+        motionService.startMotionUpdates()
     }
     
     private func setUserPositionOffset(with translation: CGPoint) {
@@ -93,12 +122,12 @@ final class VRViewController: UIViewController {
             return
         }
         
-        userPositionService.positionOffset =
-            userPositionService.positionOffset
-            + SCNVector3(
-                (lastPanTranslation.x - translation.x) * Constant.Distance.recognizerMultiplier,
-                0.0,
-                (lastPanTranslation.y - translation.y) * Constant.Distance.recognizerMultiplier)
+//        userPositionService.positionOffset =
+//            userPositionService.positionOffset
+//            + SCNVector3(
+//                (lastPanTranslation.x - translation.x) * Constant.Distance.recognizerMultiplier,
+//                0.0,
+//                (lastPanTranslation.y - translation.y) * Constant.Distance.recognizerMultiplier)
         
         self.lastPanTranslation = translation
     }
@@ -106,8 +135,8 @@ final class VRViewController: UIViewController {
 
 extension VRViewController: VRViewType {
     
-    func setPointOfView(leftCameraNode: SCNNode, rightCameraNode: SCNNode) {
-        leftSceneView.pointOfView = leftCameraNode
-        rightSceneView.pointOfView = rightCameraNode
+    func setPointOfView(to node: VRCameraNode) {
+        leftSceneView.pointOfView = node.leftNode
+        rightSceneView.pointOfView = node.rightNode
     }
 }

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.isIdleTimerDisabled = true
         
         let storybard = UIStoryboard(name: Constant.Storyboard.scene, bundle: .main)
-        let controller = storybard.instantiateInitialViewController() as? VRViewController
+        let controller = storybard.instantiateInitialViewController() as! VRViewController
      
         injectionService.injectDependencies(into: controller)
         

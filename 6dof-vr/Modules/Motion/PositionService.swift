@@ -1,5 +1,5 @@
 //
-//  UserPositionService.swift
+//  PositionService.swift
 //  6dof-vr
 //
 //  Created by Bartłomiej Nowak on 24/10/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import ARKit
 
-final class UserPositionService: NSObject {
+final class PositionService: NSObject {
     
     var onPositionUpdate: ((SCNVector3) -> Void)?
     
@@ -28,7 +28,7 @@ final class UserPositionService: NSObject {
     }
 }
 
-extension UserPositionService: ARSessionDelegate {
+extension PositionService: ARSessionDelegate {
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         let translationColumn = frame.camera.transform.columns.3

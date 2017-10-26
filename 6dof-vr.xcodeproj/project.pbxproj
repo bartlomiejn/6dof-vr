@@ -16,11 +16,15 @@
 		9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */; };
 		9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */; };
 		9F5E5C8C1F9CE72600AA6615 /* ObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C8B1F9CE72600AA6615 /* ObjectsTests.swift */; };
-		9F7863E21F9FB57800C73E1E /* UserPositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E11F9FB57800C73E1E /* UserPositionService.swift */; };
-		9F7863E31F9FB7F000C73E1E /* UserOrientationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DF1F9FB56E00C73E1E /* UserOrientationService.swift */; };
+		9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E11F9FB57800C73E1E /* PositionService.swift */; };
+		9F7863E31F9FB7F000C73E1E /* OrientationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DF1F9FB56E00C73E1E /* OrientationService.swift */; };
 		9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DB1F9FB52E00C73E1E /* AppInjectionService.swift */; };
 		9F7863E51F9FB7F800C73E1E /* VRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DD1F9FB54700C73E1E /* VRViewController.swift */; };
 		9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E71F9FBEAD00C73E1E /* SceneService.swift */; };
+		9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C471FA10926004E3E51 /* MotionService.swift */; };
+		9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */; };
+		9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */; };
+		9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C501FA23562004E3E51 /* VRCameraNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +53,13 @@
 		9F5E5C8D1F9CE72600AA6615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7863DB1F9FB52E00C73E1E /* AppInjectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInjectionService.swift; sourceTree = "<group>"; };
 		9F7863DD1F9FB54700C73E1E /* VRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRViewController.swift; sourceTree = "<group>"; };
-		9F7863DF1F9FB56E00C73E1E /* UserOrientationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrientationService.swift; sourceTree = "<group>"; };
-		9F7863E11F9FB57800C73E1E /* UserPositionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPositionService.swift; sourceTree = "<group>"; };
+		9F7863DF1F9FB56E00C73E1E /* OrientationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationService.swift; sourceTree = "<group>"; };
+		9F7863E11F9FB57800C73E1E /* PositionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionService.swift; sourceTree = "<group>"; };
 		9F7863E71F9FBEAD00C73E1E /* SceneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneService.swift; sourceTree = "<group>"; };
+		9FEA5C471FA10926004E3E51 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
+		9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentBuilder.swift; sourceTree = "<group>"; };
+		9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentLightingBuilder.swift; sourceTree = "<group>"; };
+		9FEA5C501FA23562004E3E51 /* VRCameraNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRCameraNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +145,7 @@
 			children = (
 				9F7863DA1F9FB52E00C73E1E /* Injection */,
 				9F7863E61F9FBEA500C73E1E /* Scene */,
-				9F7863DE1F9FB56300C73E1E /* User */,
+				9F7863DE1F9FB56300C73E1E /* Motion */,
 				9F7863DC1F9FB54700C73E1E /* VR */,
 			);
 			path = Modules;
@@ -159,21 +167,41 @@
 			path = VR;
 			sourceTree = "<group>";
 		};
-		9F7863DE1F9FB56300C73E1E /* User */ = {
+		9F7863DE1F9FB56300C73E1E /* Motion */ = {
 			isa = PBXGroup;
 			children = (
-				9F7863DF1F9FB56E00C73E1E /* UserOrientationService.swift */,
-				9F7863E11F9FB57800C73E1E /* UserPositionService.swift */,
+				9F7863DF1F9FB56E00C73E1E /* OrientationService.swift */,
+				9F7863E11F9FB57800C73E1E /* PositionService.swift */,
+				9FEA5C471FA10926004E3E51 /* MotionService.swift */,
 			);
-			path = User;
+			path = Motion;
 			sourceTree = "<group>";
 		};
 		9F7863E61F9FBEA500C73E1E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				9FEA5C4F1FA23550004E3E51 /* Camera */,
+				9FEA5C4A1FA234FC004E3E51 /* Environment */,
 				9F7863E71F9FBEAD00C73E1E /* SceneService.swift */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		9FEA5C4A1FA234FC004E3E51 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */,
+				9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		9FEA5C4F1FA23550004E3E51 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9FEA5C501FA23562004E3E51 /* VRCameraNode.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +310,15 @@
 			files = (
 				9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */,
 				9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */,
+				9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */,
 				9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */,
-				9F7863E31F9FB7F000C73E1E /* UserOrientationService.swift in Sources */,
-				9F7863E21F9FB57800C73E1E /* UserPositionService.swift in Sources */,
+				9F7863E31F9FB7F000C73E1E /* OrientationService.swift in Sources */,
+				9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */,
 				9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */,
+				9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */,
 				9F5DB0571F9FCA42002C9A7D /* Int+DegreesToRadians.swift in Sources */,
+				9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */,
+				9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */,
 				9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */,
 				9F7863E51F9FB7F800C73E1E /* VRViewController.swift in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  UserOrientationService.swift
+//  OrientationService.swift
 //  6dof-vr
 //
 //  Created by Bartłomiej Nowak on 24/10/2017.
@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 import CoreMotion
 
-final class UserOrientationService {
+final class OrientationService {
     
     var onOrientationUpdate: ((SCNVector3) -> Void)?
     
