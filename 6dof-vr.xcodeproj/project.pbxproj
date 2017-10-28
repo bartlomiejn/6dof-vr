@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F1C43AD1F9D00C900382370 /* Media.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1C43AC1F9D00B700382370 /* Media.scnassets */; };
-		9F5DB0571F9FCA42002C9A7D /* Int+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0561F9FCA42002C9A7D /* Int+DegreesToRadians.swift */; };
+		9F5DB0571F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0561F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift */; };
 		9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */; };
 		9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */; };
 		9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		9F1C43AC1F9D00B700382370 /* Media.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Media.scnassets; sourceTree = "<group>"; };
 		9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector+Operators.swift"; sourceTree = "<group>"; };
-		9F5DB0561F9FCA42002C9A7D /* Int+DegreesToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DegreesToRadians.swift"; sourceTree = "<group>"; };
+		9F5DB0561F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+DegreesToRadians.swift"; sourceTree = "<group>"; };
 		9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Random.swift"; sourceTree = "<group>"; };
 		9F5E5C731F9CE72600AA6615 /* 6dof-vr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6dof-vr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */,
-				9F5DB0561F9FCA42002C9A7D /* Int+DegreesToRadians.swift */,
+				9F5DB0561F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift */,
 				9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */,
 			);
 			path = Extensions;
@@ -328,7 +328,7 @@
 				9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */,
 				9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */,
 				9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */,
-				9F5DB0571F9FCA42002C9A7D /* Int+DegreesToRadians.swift in Sources */,
+				9F5DB0571F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift in Sources */,
 				9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */,
 				9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */,
 				9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */,

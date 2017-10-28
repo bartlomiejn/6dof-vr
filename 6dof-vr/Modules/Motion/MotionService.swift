@@ -11,12 +11,12 @@ import SceneKit
 
 struct MotionData {
     
-    static var zero: MotionData = MotionData(position: SCNVector3Zero, eulerAngles: SCNVector3Zero, quaternion: SCNVector4Zero)
+    static var zero: MotionData = MotionData(
+        position: SCNVector3Zero,
+        axisAngle: SCNVector4Zero)
     
     let position: SCNVector3
-    
-    let eulerAngles: SCNVector3
-    let quaternion: SCNVector4
+    let axisAngle: SCNVector4
 }
 
 protocol MotionDataProvider: class {
@@ -41,8 +41,7 @@ final class MotionService: MotionDataProvider {
     private let positionService: PositionService
     
     private (set) var currentPosition = SCNVector3Zero
-    private (set) var currentEulerAngles = SCNVector3Zero
-    private (set) var currentQuaternion = SCNVector4Zero
+    private (set) var currentAxisAngle = SCNVector4Zero
     
     init(orientationService: OrientationService, positionService: PositionService) {
         self.orientationService = orientationService
@@ -63,12 +62,8 @@ final class MotionService: MotionDataProvider {
     }
     
     private func setupOrientationServiceCallback() {
-//        orientationService.onEulerAnglesUpdate = { [weak self] eulerAngles in
-//            self?.currentEulerAngles = eulerAngles
-//            self?.doMotionUpdate()
-//        }
-        orientationService.onAxisAngleQuaternionUpdate = { [weak self] quaternion in
-            self?.currentQuaternion = quaternion
+        orientationService.onAxisAngleUpdate = { [weak self] axisAngle in
+            self?.currentAxisAngle = axisAngle
             self?.doMotionUpdate()
         }
     }
@@ -81,6 +76,6 @@ final class MotionService: MotionDataProvider {
     }
     
     private func doMotionUpdate() {
-        onMotionUpdate?(.init(position: currentPosition, eulerAngles: currentEulerAngles, quaternion: currentQuaternion))
+        onMotionUpdate?(.init(position: currentPosition, axisAngle: currentAxisAngle))
     }
 }

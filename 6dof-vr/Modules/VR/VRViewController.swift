@@ -40,12 +40,11 @@ final class VRViewController: UIViewController {
         setup(rightSceneView)
         
         motionService.mode = .threeDoF
+        
         world.setupMotionProvider(with: motionService)
         world.setupCamera()
         
         setupMovementPanRecognizer()
-        
-        leftSceneView.showsStatistics = true
     }
     
     @objc private func pannedView(recognizer: UIPanGestureRecognizer) {
