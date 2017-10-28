@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F0163F51FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0163F41FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift */; };
 		9F1C43AD1F9D00C900382370 /* Media.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1C43AC1F9D00B700382370 /* Media.scnassets */; };
 		9F5DB0571F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0561F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift */; };
 		9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */; };
@@ -17,7 +18,7 @@
 		9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */; };
 		9F5E5C8C1F9CE72600AA6615 /* ObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C8B1F9CE72600AA6615 /* ObjectsTests.swift */; };
 		9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E11F9FB57800C73E1E /* PositionService.swift */; };
-		9F7863E31F9FB7F000C73E1E /* OrientationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DF1F9FB56E00C73E1E /* OrientationService.swift */; };
+		9F7863E31F9FB7F000C73E1E /* RotationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DF1F9FB56E00C73E1E /* RotationService.swift */; };
 		9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DB1F9FB52E00C73E1E /* AppInjectionService.swift */; };
 		9F7863E51F9FB7F800C73E1E /* VRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DD1F9FB54700C73E1E /* VRViewController.swift */; };
 		9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E71F9FBEAD00C73E1E /* SceneService.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F0163F41FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "simd_quatf+AxisAngle.swift"; sourceTree = "<group>"; };
 		9F1C43AC1F9D00B700382370 /* Media.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Media.scnassets; sourceTree = "<group>"; };
 		9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector+Operators.swift"; sourceTree = "<group>"; };
 		9F5DB0561F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+DegreesToRadians.swift"; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		9F5E5C8D1F9CE72600AA6615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7863DB1F9FB52E00C73E1E /* AppInjectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInjectionService.swift; sourceTree = "<group>"; };
 		9F7863DD1F9FB54700C73E1E /* VRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRViewController.swift; sourceTree = "<group>"; };
-		9F7863DF1F9FB56E00C73E1E /* OrientationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationService.swift; sourceTree = "<group>"; };
+		9F7863DF1F9FB56E00C73E1E /* RotationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationService.swift; sourceTree = "<group>"; };
 		9F7863E11F9FB57800C73E1E /* PositionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionService.swift; sourceTree = "<group>"; };
 		9F7863E71F9FBEAD00C73E1E /* SceneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneService.swift; sourceTree = "<group>"; };
 		9FEA5C471FA10926004E3E51 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */,
 				9F5DB0561F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift */,
 				9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */,
+				9F0163F41FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -172,7 +175,7 @@
 		9F7863DE1F9FB56300C73E1E /* Motion */ = {
 			isa = PBXGroup;
 			children = (
-				9F7863DF1F9FB56E00C73E1E /* OrientationService.swift */,
+				9F7863DF1F9FB56E00C73E1E /* RotationService.swift */,
 				9F7863E11F9FB57800C73E1E /* PositionService.swift */,
 				9FEA5C471FA10926004E3E51 /* MotionService.swift */,
 			);
@@ -319,12 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F0163F51FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift in Sources */,
 				9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */,
 				9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */,
 				9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */,
 				9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */,
 				9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */,
-				9F7863E31F9FB7F000C73E1E /* OrientationService.swift in Sources */,
+				9F7863E31F9FB7F000C73E1E /* RotationService.swift in Sources */,
 				9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */,
 				9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */,
 				9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */,

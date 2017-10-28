@@ -11,12 +11,10 @@ import SceneKit
 
 struct MotionData {
     
-    static var zero: MotionData = MotionData(
-        position: SCNVector3Zero,
-        axisAngle: SCNVector4Zero)
+    static var zero: MotionData = MotionData(position: SCNVector3Zero, rotation: simd_float4())
     
     let position: SCNVector3
-    let axisAngle: SCNVector4
+    let rotation: simd_float4
 }
 
 protocol MotionDataProvider: class {
@@ -37,14 +35,14 @@ final class MotionService: MotionDataProvider {
         didSet { startMotionUpdates() }
     }
     
-    private let orientationService: OrientationService
+    private let rotationService: RotationService
     private let positionService: PositionService
     
     private (set) var currentPosition = SCNVector3Zero
-    private (set) var currentAxisAngle = SCNVector4Zero
+    private (set) var currentRotation = simd_float4()
     
-    init(orientationService: OrientationService, positionService: PositionService) {
-        self.orientationService = orientationService
+    init(rotationService: RotationService, positionService: PositionService) {
+        self.rotationService = rotationService
         self.positionService = positionService
         
         setupOrientationServiceCallback()
@@ -54,16 +52,16 @@ final class MotionService: MotionDataProvider {
     func startMotionUpdates() {
         switch mode {
         case .threeDoF:
-            orientationService.startOrientationUpdates()
+            rotationService.startRotationUpdates()
         case .sixDoF:
-            orientationService.startOrientationUpdates()
+            rotationService.startRotationUpdates()
             positionService.startPositionUpdates()
         }
     }
     
     private func setupOrientationServiceCallback() {
-        orientationService.onAxisAngleUpdate = { [weak self] axisAngle in
-            self?.currentAxisAngle = axisAngle
+        rotationService.onRotationUpdate = { [weak self] rotation in
+            self?.currentRotation = rotation
             self?.doMotionUpdate()
         }
     }
@@ -76,6 +74,6 @@ final class MotionService: MotionDataProvider {
     }
     
     private func doMotionUpdate() {
-        onMotionUpdate?(.init(position: currentPosition, axisAngle: currentAxisAngle))
+        onMotionUpdate?(.init(position: currentPosition, rotation: currentRotation))
     }
 }

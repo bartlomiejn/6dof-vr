@@ -25,7 +25,7 @@ final class PlayerNode: SCNNode {
     private var playerWorldPosition: SCNVector3
     
     private var motionPosition = SCNVector3Zero
-    private var motionAxisAngle = SCNVector4Zero
+    private var motionRotation = simd_float4()
     
     init(startingPosition: SCNVector3, camera: VRCameraNode) {
         playerWorldPosition = startingPosition
@@ -44,7 +44,7 @@ final class PlayerNode: SCNNode {
     
     func updatePosition(with motionData: MotionData) {
         motionPosition = motionData.position
-        motionAxisAngle = motionData.axisAngle
+        motionRotation = motionData.rotation
         
         updateNodePosition()
         updateNodeOrientation()
@@ -61,6 +61,6 @@ final class PlayerNode: SCNNode {
     }
     
     private func updateNodeOrientation() {
-        cameraNode.rotation = motionAxisAngle
+        cameraNode.simdRotation = motionRotation
     }
 }

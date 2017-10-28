@@ -51,7 +51,7 @@ final class AppInjectionService: InjectionService {
     private let appScene = SCNScene()
     
     private lazy var motionService = MotionService(
-        orientationService: OrientationService(motionManager: motionManager),
+        rotationService: RotationService(motionManager: motionManager),
         positionService: PositionService(session: arSession))
     
     init() {
