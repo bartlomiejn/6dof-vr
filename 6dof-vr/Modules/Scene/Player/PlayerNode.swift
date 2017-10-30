@@ -20,7 +20,7 @@ final class PlayerNode: SCNNode {
         }
         
         enum Movement {
-            static let time: TimeInterval = 1.0
+            static let time: TimeInterval = 0.8
         }
     }
     

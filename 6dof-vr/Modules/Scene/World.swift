@@ -33,6 +33,9 @@ final class World {
     init(scene: SCNScene) {
         self.scene = scene
         
+        EnvironmentBuilder().populate(scene)
+        EnvironmentLightingBuilder().addLighting(to: scene)
+        
         arena = ArenaNode(xCount: Constant.Arena.size.x, yCount: Constant.Arena.size.x)
         arena.position = Constant.Arena.position
         scene.rootNode.addChildNode(arena)
@@ -44,9 +47,6 @@ final class World {
         
         gazeTimer = GazeTimer(timeInterval: Constant.Gaze.seconds)
         gazeTimer.delegate = self
-        
-        EnvironmentBuilder().populate(scene)
-        EnvironmentLightingBuilder().addLighting(to: scene)
     }
     
     func setupCamera() {

@@ -23,6 +23,10 @@ final class ArenaFieldNode: SCNNode {
                 static let metalness = UIColor.lightGray
             }
         }
+        
+        enum Animation {
+            static let length: TimeInterval =  0.1
+        }
     }
     
     init(width: CGFloat, height: CGFloat, length: CGFloat) {

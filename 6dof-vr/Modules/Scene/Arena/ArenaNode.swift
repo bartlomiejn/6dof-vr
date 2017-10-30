@@ -54,16 +54,17 @@ final class ArenaNode: SCNNode {
               let maxY = node.geometry?.boundingBox.max.y else {
             return nil
         }
-
-        return simd_float3(node.simdPosition.x, maxY, node.simdPosition.z)
+        let mat = simd_float3(node.simdPosition.x, maxY * 2, node.simdPosition.z)
+        return mat
     }
     
     func positionFor(_ node: ArenaFieldNode) -> simd_float3? {
-        // TODO: Replace this awful pyramid with mapping of position to array offset
+        // TODO: Replace this awful pyramid with mapping of local position to array offset
         
         for (ix, weakRefArray) in nodes.enumerated() {
             for (iy, weakNode) in weakRefArray.enumerated() {
                 if let testedNode = weakNode.referee, node === testedNode {
+                    print("positionFor \(ix, iy)")
                     return positionFor(x: ix, y: iy)
                 }
             }

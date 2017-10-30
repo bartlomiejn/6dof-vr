@@ -21,6 +21,7 @@ struct EnvironmentLightingBuilder {
         
         let node = SCNNode()
         node.light = light
+        
         scene.rootNode.addChildNode(node)
     }
     
@@ -28,10 +29,14 @@ struct EnvironmentLightingBuilder {
         let light = SCNLight()
         light.type = .directional
         light.castsShadow = true
+        light.zNear = 0.1
+        light.zFar = 10.0
+        light.shadowBias = 2.0
         
         let node = SCNNode()
         node.light = light
-        node.eulerAngles = SCNVector3(-(Float.pi / 4.0), -Float.pi / 2.0, 0.0)
+        node.position = SCNVector3(10.0, 20.0, 10.0)
+        node.eulerAngles = SCNVector3(-(Float.pi / 3.9), -Float.pi / 1.9, 0.0)
         
         scene.rootNode.addChildNode(node)
     }
