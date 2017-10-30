@@ -12,7 +12,7 @@ final class ArenaNode: SCNNode {
     
     private enum Constant {
         enum Dimension {
-            static let size: Float = 1.0
+            static let size: Float = 1.6
         }
     }
     

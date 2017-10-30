@@ -55,6 +55,8 @@ struct EnvironmentBuilder {
         plane.position = SCNVector3(0.0, 0.0, 0.0)
         plane.geometry?.firstMaterial?.lightingModel = .physicallyBased
         plane.geometry?.firstMaterial?.diffuse.contents = UIColor.black
+        plane.geometry?.firstMaterial?.roughness.contents = UIColor.white
+        plane.geometry?.firstMaterial?.metalness.contents = UIColor.darkGray
         
         node.addChildNode(plane)
     }
