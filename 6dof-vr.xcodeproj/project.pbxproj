@@ -17,11 +17,12 @@
 		9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */; };
 		9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */; };
 		9F5E5C8C1F9CE72600AA6615 /* ObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C8B1F9CE72600AA6615 /* ObjectsTests.swift */; };
-		9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E11F9FB57800C73E1E /* PositionService.swift */; };
-		9F7863E31F9FB7F000C73E1E /* RotationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DF1F9FB56E00C73E1E /* RotationService.swift */; };
 		9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DB1F9FB52E00C73E1E /* AppInjectionService.swift */; };
 		9F7863E51F9FB7F800C73E1E /* VRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863DD1F9FB54700C73E1E /* VRViewController.swift */; };
-		9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E71F9FBEAD00C73E1E /* SceneService.swift */; };
+		9F7863E81F9FBEAD00C73E1E /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7863E71F9FBEAD00C73E1E /* World.swift */; };
+		9F8064921FA78F0D0077314A /* ArenaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064911FA78F0D0077314A /* ArenaNode.swift */; };
+		9F8064951FA7A1C00077314A /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064941FA7A1C00077314A /* WeakReference.swift */; };
+		9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064961FA7A2570077314A /* ArenaFieldNode.swift */; };
 		9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C471FA10926004E3E51 /* MotionService.swift */; };
 		9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */; };
 		9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */; };
@@ -56,9 +57,10 @@
 		9F5E5C8D1F9CE72600AA6615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7863DB1F9FB52E00C73E1E /* AppInjectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInjectionService.swift; sourceTree = "<group>"; };
 		9F7863DD1F9FB54700C73E1E /* VRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRViewController.swift; sourceTree = "<group>"; };
-		9F7863DF1F9FB56E00C73E1E /* RotationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationService.swift; sourceTree = "<group>"; };
-		9F7863E11F9FB57800C73E1E /* PositionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionService.swift; sourceTree = "<group>"; };
-		9F7863E71F9FBEAD00C73E1E /* SceneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneService.swift; sourceTree = "<group>"; };
+		9F7863E71F9FBEAD00C73E1E /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		9F8064911FA78F0D0077314A /* ArenaNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaNode.swift; sourceTree = "<group>"; };
+		9F8064941FA7A1C00077314A /* WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
+		9F8064961FA7A2570077314A /* ArenaFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaFieldNode.swift; sourceTree = "<group>"; };
 		9FEA5C471FA10926004E3E51 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentBuilder.swift; sourceTree = "<group>"; };
 		9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentLightingBuilder.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		9F5DB0501F9FC9E6002C9A7D /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
+				9F8064931FA7A1AC0077314A /* Objects */,
 				9F5DB0541F9FCA1C002C9A7D /* Extensions */,
 			);
 			path = Auxiliary;
@@ -175,8 +178,6 @@
 		9F7863DE1F9FB56300C73E1E /* Motion */ = {
 			isa = PBXGroup;
 			children = (
-				9F7863DF1F9FB56E00C73E1E /* RotationService.swift */,
-				9F7863E11F9FB57800C73E1E /* PositionService.swift */,
 				9FEA5C471FA10926004E3E51 /* MotionService.swift */,
 			);
 			path = Motion;
@@ -185,12 +186,30 @@
 		9F7863E61F9FBEA500C73E1E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				9F8064901FA78F010077314A /* Arena */,
 				9FEA5C521FA23730004E3E51 /* Player */,
 				9FEA5C4F1FA23550004E3E51 /* Camera */,
 				9FEA5C4A1FA234FC004E3E51 /* Environment */,
-				9F7863E71F9FBEAD00C73E1E /* SceneService.swift */,
+				9F7863E71F9FBEAD00C73E1E /* World.swift */,
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		9F8064901FA78F010077314A /* Arena */ = {
+			isa = PBXGroup;
+			children = (
+				9F8064961FA7A2570077314A /* ArenaFieldNode.swift */,
+				9F8064911FA78F0D0077314A /* ArenaNode.swift */,
+			);
+			path = Arena;
+			sourceTree = "<group>";
+		};
+		9F8064931FA7A1AC0077314A /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9F8064941FA7A1C00077314A /* WeakReference.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		9FEA5C4A1FA234FC004E3E51 /* Environment */ = {
@@ -322,18 +341,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */,
 				9F0163F51FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift in Sources */,
 				9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */,
-				9F7863E81F9FBEAD00C73E1E /* SceneService.swift in Sources */,
+				9F7863E81F9FBEAD00C73E1E /* World.swift in Sources */,
+				9F8064921FA78F0D0077314A /* ArenaNode.swift in Sources */,
 				9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */,
 				9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */,
 				9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */,
-				9F7863E31F9FB7F000C73E1E /* RotationService.swift in Sources */,
-				9F7863E21F9FB57800C73E1E /* PositionService.swift in Sources */,
 				9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */,
 				9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */,
 				9F5DB0571F9FCA42002C9A7D /* Numbers+DegreesToRadians.swift in Sources */,
 				9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */,
+				9F8064951FA7A1C00077314A /* WeakReference.swift in Sources */,
 				9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */,
 				9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */,
 				9F7863E51F9FB7F800C73E1E /* VRViewController.swift in Sources */,

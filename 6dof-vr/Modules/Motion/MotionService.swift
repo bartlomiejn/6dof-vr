@@ -7,73 +7,87 @@
 //
 
 import Foundation
-import SceneKit
+import CoreMotion
+import ARKit
+import simd
 
 struct MotionData {
+    static var zero: MotionData = MotionData(position: simd_float3(), rotation: simd_float4())
     
-    static var zero: MotionData = MotionData(position: SCNVector3Zero, rotation: simd_float4())
-    
-    let position: SCNVector3
+    let position: simd_float3
     let rotation: simd_float4
 }
 
 protocol MotionDataProvider: class {
-    var onMotionUpdate: ((MotionData) -> Void)? { get set }
     func startMotionUpdates()
 }
 
 final class MotionService: MotionDataProvider {
     
-    enum GatheringMode {
-        case threeDoF
-        case sixDoF
+    private let motionManager: CMMotionManager
+    private let session: ARSession
+    
+    var motionData: MotionData {
+        return MotionData(
+            position: position(from: session.currentFrame),
+            rotation: correctedRotation(from: motionManager.deviceMotion?.attitude.quaternion))
     }
-    
-    var onMotionUpdate: ((MotionData) -> Void)?
-    
-    var mode: GatheringMode = .sixDoF {
-        didSet { startMotionUpdates() }
+
+    init(motionManager: CMMotionManager, session: ARSession) {
+        self.motionManager = motionManager
+        self.session = session
     }
-    
-    private let rotationService: RotationService
-    private let positionService: PositionService
-    
-    private (set) var currentPosition = SCNVector3Zero
-    private (set) var currentRotation = simd_float4()
-    
-    init(rotationService: RotationService, positionService: PositionService) {
-        self.rotationService = rotationService
-        self.positionService = positionService
-        
-        setupOrientationServiceCallback()
-        setupPositionServiceCallback()
-    }
-    
+
     func startMotionUpdates() {
-        switch mode {
-        case .threeDoF:
-            rotationService.startRotationUpdates()
-        case .sixDoF:
-            rotationService.startRotationUpdates()
-            positionService.startPositionUpdates()
+        guard motionManager.isDeviceMotionAvailable else {
+            return
         }
+        
+//        session.run(ARWorldTrackingConfiguration())
+        
+        motionManager.deviceMotionUpdateInterval = 1.0 / 120.0
+        motionManager.startDeviceMotionUpdates()
     }
     
-    private func setupOrientationServiceCallback() {
-        rotationService.onRotationUpdate = { [weak self] rotation in
-            self?.currentRotation = rotation
-            self?.doMotionUpdate()
+    private func position(from frame: ARFrame?) -> simd_float3 {
+        guard let frame = frame else {
+            return simd_float3()
         }
+        
+        let transformColumn = frame.camera.transform.columns.3
+        
+        return simd_float3(transformColumn.x, transformColumn.y, transformColumn.z)
     }
     
-    private func setupPositionServiceCallback() {
-        positionService.onPositionUpdate = { [weak self] position in
-            self?.currentPosition = position
-            self?.doMotionUpdate()
+    private func correctedRotation(from quaternion: CMQuaternion?) -> simd_float4 {
+        guard let quaternion = quaternion else {
+            return simd_float4()
         }
-    }
-    
-    private func doMotionUpdate() {
-        onMotionUpdate?(.init(position: currentPosition, rotation: currentRotation))
+        
+        let quat = simd_quatf(quaternion)
+        let correctedAxisAngle = simd_float4(
+            quat.axis.y,
+            quat.axis.z,
+            -quat.axis.x,
+            quat.angle)
+        
+        let correctedQuat = simd_quatf.fromAxisAngle(correctedAxisAngle)
+        
+        let viewportTiltAngle = Float(90.0.degreesToRadians)
+        let tiltQuat = simd_quatf(
+            ix: -1.0 * sin(viewportTiltAngle / 2),
+            iy: 0.0 * sin(viewportTiltAngle / 2),
+            iz: 0.0 * sin(viewportTiltAngle / 2),
+            r: cos(viewportTiltAngle / 2))
+        
+        let correctedQuat2 = correctedQuat * tiltQuat
+        
+        let correctedAxisAngle2 = simd_float4(
+            correctedQuat2.axis.x,
+            correctedQuat2.axis.z,
+            correctedQuat2.axis.y,
+            correctedQuat2.angle)
+        
+        return correctedAxisAngle2
     }
 }

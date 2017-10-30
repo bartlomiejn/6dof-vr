@@ -22,12 +22,12 @@ final class PlayerNode: SCNNode {
     
     let cameraNode: VRCameraNode
     
-    private var playerWorldPosition: SCNVector3
+    private var playerWorldPosition = simd_float3()
     
-    private var motionPosition = SCNVector3Zero
+    private var motionPosition = simd_float3()
     private var motionRotation = simd_float4()
     
-    init(startingPosition: SCNVector3, camera: VRCameraNode) {
+    init(startingPosition: simd_float3, camera: VRCameraNode) {
         playerWorldPosition = startingPosition
         self.cameraNode = camera
         
@@ -50,14 +50,14 @@ final class PlayerNode: SCNNode {
         updateNodeOrientation()
     }
     
-    func move(to position: SCNVector3) {
-        playerWorldPosition = position
+    func move(by offset: simd_float3) {
+        playerWorldPosition = playerWorldPosition + offset
         
         updateNodePosition()
     }
     
     private func updateNodePosition() {
-        position = motionPosition
+        simdPosition = playerWorldPosition + motionPosition
     }
     
     private func updateNodeOrientation() {

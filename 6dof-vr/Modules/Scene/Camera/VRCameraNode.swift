@@ -13,7 +13,7 @@ final class VRCameraNode: SCNNode {
     enum Constant {
         enum Camera {
             static let nearPlane: Double = 0.1
-            static let farPlane: Double = 100.0
+            static let farPlane: Double = 150.0
             static let fieldOfView: CGFloat = 100.0
         }
         

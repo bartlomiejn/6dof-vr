@@ -8,7 +8,7 @@
 
 import SceneKit
 
-final class EnvironmentBuilder {
+struct EnvironmentBuilder {
     
     static let background = UIImage(named: "sky_map")
     
@@ -27,19 +27,22 @@ final class EnvironmentBuilder {
                     height: randomHeight,
                     length: CGFloat.random(lowerLimit: 0.5, upperLimit: 3.0),
                     chamferRadius: 0.0))
+
+            let x = CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0)
+            let y = CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0)
             
             box.position = SCNVector3(
-                CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0),
+                x,
                 0.0,
                 CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0))
-            
+
             box.pivot = SCNMatrix4MakeTranslation(0.0, -Float(randomHeight / 2.0), 0.0)
-            
+
             box.geometry?.firstMaterial?.lightingModel = .physicallyBased
             box.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
             box.geometry?.firstMaterial?.roughness.contents = UIColor.darkGray
             box.geometry?.firstMaterial?.metalness.contents = UIColor.darkGray
-            
+
             node.addChildNode(box)
         }
     }
@@ -52,10 +55,7 @@ final class EnvironmentBuilder {
         let plane = SCNNode(geometry: floor)
         
         plane.position = SCNVector3(0.0, 0.0, 0.0)
-        plane.geometry?.firstMaterial?.lightingModel = .physicallyBased
-        plane.geometry?.firstMaterial?.diffuse.contents = UIColor.lightGray
-        plane.geometry?.firstMaterial?.roughness.contents = UIColor.darkGray
-        plane.geometry?.firstMaterial?.metalness.contents = UIColor.darkGray
+        plane.geometry?.firstMaterial?.diffuse.contents = UIColor.black
         
         node.addChildNode(plane)
     }

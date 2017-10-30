@@ -8,22 +8,29 @@
 
 import SceneKit
 
-final class EnvironmentLightingBuilder {
+struct EnvironmentLightingBuilder {
     
     func addLighting(to scene: SCNScene) {
+//        addAmbientLighting(to: scene)
         addDirectionalLighting(to: scene)
+    }
+    
+    private func addAmbientLighting(to scene: SCNScene) {
+        let light = SCNLight()
+        light.type = .ambient
+        
+        let node = SCNNode()
+        node.light = light
+        scene.rootNode.addChildNode(node)
     }
     
     private func addDirectionalLighting(to scene: SCNScene) {
         let light = SCNLight()
-        
         light.type = .directional
         light.castsShadow = true
         
         let node = SCNNode()
-        
         node.light = light
-        node.position = SCNVector3(0.0, 0.0, 0.0)
         node.eulerAngles = SCNVector3(-(Float.pi / 4.0), -Float.pi / 2.0, 0.0)
         
         scene.rootNode.addChildNode(node)
