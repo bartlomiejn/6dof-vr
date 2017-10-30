@@ -18,6 +18,10 @@ final class PlayerNode: SCNNode {
         enum Translation {
             static let camera = SCNVector3(0.0, Measurement.height, 0.0)
         }
+        
+        enum Movement {
+            static let time: TimeInterval = 1.0
+        }
     }
     
     let cameraNode: VRCameraNode
@@ -54,6 +58,14 @@ final class PlayerNode: SCNNode {
         playerWorldPosition = playerWorldPosition + offset
         
         updateNodePosition()
+    }
+    
+    func move(to position: simd_float3, animated: Bool) {
+        playerWorldPosition = position
+        
+        let action = SCNAction.move(to: SCNVector3(position + motionPosition), duration: Constant.Movement.time)
+        action.timingMode = .easeInEaseOut
+        runAction(action)
     }
     
     private func updateNodePosition() {

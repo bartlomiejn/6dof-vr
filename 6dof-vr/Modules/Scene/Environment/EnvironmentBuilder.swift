@@ -13,7 +13,6 @@ struct EnvironmentBuilder {
     static let background = UIImage(named: "sky_map")
     
     func populate(_ scene: SCNScene) {
-        addBoxNodes(to: scene.rootNode, count: 200)
         addFloorNode(to: scene.rootNode)
         addBackground(to: scene)
     }
@@ -29,7 +28,6 @@ struct EnvironmentBuilder {
                     chamferRadius: 0.0))
 
             let x = CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0)
-            let y = CGFloat.random(lowerLimit: -100.0, upperLimit: 100.0)
             
             box.position = SCNVector3(
                 x,
@@ -55,6 +53,7 @@ struct EnvironmentBuilder {
         let plane = SCNNode(geometry: floor)
         
         plane.position = SCNVector3(0.0, 0.0, 0.0)
+        plane.geometry?.firstMaterial?.lightingModel = .physicallyBased
         plane.geometry?.firstMaterial?.diffuse.contents = UIColor.black
         
         node.addChildNode(plane)

@@ -29,7 +29,7 @@ final class ArenaNode: SCNNode {
             for iy in 0..<yCount {
                 let field = ArenaFieldNode(
                     width: CGFloat(Constant.Dimension.size),
-                    height: CGFloat.random(lowerLimit: 0.1, upperLimit: 4.0),
+                    height: CGFloat.random(lowerLimit: 6.0, upperLimit: 10.0),
                     length: CGFloat(Constant.Dimension.size))
 
                 field.simdPosition = simd_float3(
@@ -56,6 +56,20 @@ final class ArenaNode: SCNNode {
         }
 
         return simd_float3(node.simdPosition.x, maxY, node.simdPosition.z)
+    }
+    
+    func positionFor(_ node: ArenaFieldNode) -> simd_float3? {
+        // TODO: Replace this awful pyramid with mapping of position to array offset
+        
+        for (ix, weakRefArray) in nodes.enumerated() {
+            for (iy, weakNode) in weakRefArray.enumerated() {
+                if let testedNode = weakNode.referee, node === testedNode {
+                    return positionFor(x: ix, y: iy)
+                }
+            }
+        }
+        
+        return nil
     }
     
     func select(node: ArenaFieldNode?) {

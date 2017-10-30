@@ -23,6 +23,7 @@
 		9F8064921FA78F0D0077314A /* ArenaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064911FA78F0D0077314A /* ArenaNode.swift */; };
 		9F8064951FA7A1C00077314A /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064941FA7A1C00077314A /* WeakReference.swift */; };
 		9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064961FA7A2570077314A /* ArenaFieldNode.swift */; };
+		9FBB5C231FA7B6CB00467134 /* GazeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */; };
 		9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C471FA10926004E3E51 /* MotionService.swift */; };
 		9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */; };
 		9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */; };
@@ -61,6 +62,7 @@
 		9F8064911FA78F0D0077314A /* ArenaNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaNode.swift; sourceTree = "<group>"; };
 		9F8064941FA7A1C00077314A /* WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
 		9F8064961FA7A2570077314A /* ArenaFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaFieldNode.swift; sourceTree = "<group>"; };
+		9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeTimer.swift; sourceTree = "<group>"; };
 		9FEA5C471FA10926004E3E51 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentBuilder.swift; sourceTree = "<group>"; };
 		9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentLightingBuilder.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		9F7863E61F9FBEA500C73E1E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				9FBB5C211FA7B6B900467134 /* Gaze */,
 				9F8064901FA78F010077314A /* Arena */,
 				9FEA5C521FA23730004E3E51 /* Player */,
 				9FEA5C4F1FA23550004E3E51 /* Camera */,
@@ -210,6 +213,14 @@
 				9F8064941FA7A1C00077314A /* WeakReference.swift */,
 			);
 			path = Objects;
+			sourceTree = "<group>";
+		};
+		9FBB5C211FA7B6B900467134 /* Gaze */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */,
+			);
+			path = Gaze;
 			sourceTree = "<group>";
 		};
 		9FEA5C4A1FA234FC004E3E51 /* Environment */ = {
@@ -342,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */,
+				9FBB5C231FA7B6CB00467134 /* GazeTimer.swift in Sources */,
 				9F0163F51FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift in Sources */,
 				9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */,
 				9F7863E81F9FBEAD00C73E1E /* World.swift in Sources */,
