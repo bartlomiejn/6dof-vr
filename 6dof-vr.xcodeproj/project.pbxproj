@@ -13,7 +13,6 @@
 		9F5DB0581F9FCA62002C9A7D /* SCNVector+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0551F9FCA1C002C9A7D /* SCNVector+Operators.swift */; };
 		9F5DB05A1F9FCA95002C9A7D /* CGFloat+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */; };
 		9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */; };
-		9F5E5C7C1F9CE72600AA6615 /* Scene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */; };
 		9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */; };
 		9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */; };
 		9F5E5C8C1F9CE72600AA6615 /* ObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5E5C8B1F9CE72600AA6615 /* ObjectsTests.swift */; };
@@ -24,6 +23,10 @@
 		9F8064951FA7A1C00077314A /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064941FA7A1C00077314A /* WeakReference.swift */; };
 		9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064961FA7A2570077314A /* ArenaFieldNode.swift */; };
 		9FBB5C231FA7B6CB00467134 /* GazeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */; };
+		9FC84A321FA8B59000E5524D /* barrel_dist.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A311FA8B59000E5524D /* barrel_dist.fsh */; };
+		9FC84A351FA8B91A00E5524D /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC84A341FA8B91A00E5524D /* FileLoader.swift */; };
+		9FC84A371FA8BC5100E5524D /* barrel_dist.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A361FA8BC5100E5524D /* barrel_dist.json */; };
+		9FC84A391FA8BDBD00E5524D /* barrel_dist.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A381FA8BDBD00E5524D /* barrel_dist.vsh */; };
 		9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C471FA10926004E3E51 /* MotionService.swift */; };
 		9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */; };
 		9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */; };
@@ -49,7 +52,6 @@
 		9F5DB0591F9FCA95002C9A7D /* CGFloat+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Random.swift"; sourceTree = "<group>"; };
 		9F5E5C731F9CE72600AA6615 /* 6dof-vr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6dof-vr.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9F5E5C7B1F9CE72600AA6615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Scene.storyboard; sourceTree = "<group>"; };
 		9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F5E5C801F9CE72600AA6615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F5E5C821F9CE72600AA6615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +65,10 @@
 		9F8064941FA7A1C00077314A /* WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
 		9F8064961FA7A2570077314A /* ArenaFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaFieldNode.swift; sourceTree = "<group>"; };
 		9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeTimer.swift; sourceTree = "<group>"; };
+		9FC84A311FA8B59000E5524D /* barrel_dist.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = barrel_dist.fsh; sourceTree = "<group>"; };
+		9FC84A341FA8B91A00E5524D /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		9FC84A361FA8BC5100E5524D /* barrel_dist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = barrel_dist.json; sourceTree = "<group>"; };
+		9FC84A381FA8BDBD00E5524D /* barrel_dist.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = barrel_dist.vsh; sourceTree = "<group>"; };
 		9FEA5C471FA10926004E3E51 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentBuilder.swift; sourceTree = "<group>"; };
 		9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentLightingBuilder.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		9F5DB0501F9FC9E6002C9A7D /* Auxiliary */ = {
 			isa = PBXGroup;
 			children = (
+				9FC84A331FA8B91000E5524D /* Files */,
 				9F8064931FA7A1AC0077314A /* Objects */,
 				9F5DB0541F9FCA1C002C9A7D /* Extensions */,
 			);
@@ -132,7 +139,6 @@
 				9F7863D91F9FB52E00C73E1E /* Modules */,
 				9F5DB0501F9FC9E6002C9A7D /* Auxiliary */,
 				9F5E5C761F9CE72600AA6615 /* AppDelegate.swift */,
-				9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */,
 				9F5E5C7D1F9CE72600AA6615 /* Assets.xcassets */,
 				9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */,
 				9F5E5C821F9CE72600AA6615 /* Info.plist */,
@@ -172,6 +178,7 @@
 		9F7863DC1F9FB54700C73E1E /* VR */ = {
 			isa = PBXGroup;
 			children = (
+				9FC84A301FA8B53C00E5524D /* Barrel Distortion */,
 				9F7863DD1F9FB54700C73E1E /* VRViewController.swift */,
 			);
 			path = VR;
@@ -221,6 +228,24 @@
 				9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */,
 			);
 			path = Gaze;
+			sourceTree = "<group>";
+		};
+		9FC84A301FA8B53C00E5524D /* Barrel Distortion */ = {
+			isa = PBXGroup;
+			children = (
+				9FC84A311FA8B59000E5524D /* barrel_dist.fsh */,
+				9FC84A381FA8BDBD00E5524D /* barrel_dist.vsh */,
+				9FC84A361FA8BC5100E5524D /* barrel_dist.json */,
+			);
+			path = "Barrel Distortion";
+			sourceTree = "<group>";
+		};
+		9FC84A331FA8B91000E5524D /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				9FC84A341FA8B91A00E5524D /* FileLoader.swift */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 		9FEA5C4A1FA234FC004E3E51 /* Environment */ = {
@@ -332,9 +357,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */,
+				9FC84A321FA8B59000E5524D /* barrel_dist.fsh in Resources */,
+				9FC84A371FA8BC5100E5524D /* barrel_dist.json in Resources */,
 				9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */,
 				9F1C43AD1F9D00C900382370 /* Media.scnassets in Resources */,
-				9F5E5C7C1F9CE72600AA6615 /* Scene.storyboard in Resources */,
+				9FC84A391FA8BDBD00E5524D /* barrel_dist.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +385,7 @@
 				9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */,
 				9F7863E81F9FBEAD00C73E1E /* World.swift in Sources */,
 				9F8064921FA78F0D0077314A /* ArenaNode.swift in Sources */,
+				9FC84A351FA8B91A00E5524D /* FileLoader.swift in Sources */,
 				9F5E5C771F9CE72600AA6615 /* AppDelegate.swift in Sources */,
 				9FEA5C511FA23562004E3E51 /* VRCameraNode.swift in Sources */,
 				9F7863E41F9FB7F400C73E1E /* AppInjectionService.swift in Sources */,
@@ -391,14 +419,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9F5E5C7A1F9CE72600AA6615 /* Scene.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9F5E5C7B1F9CE72600AA6615 /* Base */,
-			);
-			name = Scene.storyboard;
-			sourceTree = "<group>";
-		};
 		9F5E5C7F1F9CE72600AA6615 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

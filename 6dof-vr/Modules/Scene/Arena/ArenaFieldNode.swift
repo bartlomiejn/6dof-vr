@@ -35,7 +35,7 @@ final class ArenaFieldNode: SCNNode {
         geometry = SCNBox(width: width, height: height, length: length, chamferRadius: 0.0)
         pivot = SCNMatrix4MakeTranslation(0.0, -Float(height / 2.0), 0.0)
         
-        geometry?.firstMaterial?.lightingModel = .physicallyBased
+//        geometry?.firstMaterial?.lightingModel = .physicallyBased
         
         set(isHighlighted: false)
     }

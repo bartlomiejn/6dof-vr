@@ -1,0 +1,30 @@
+{
+    "passes" : {
+        "barrel" : {
+            "outputs" : {
+                "color" : "COLOR"
+            },
+            "inputs" : {
+                "color_sampler" : "COLOR",
+                "vertex_pos" : "vertex_pos_symbol",
+                "mvp_mat" : "mvp_mat_symbol"
+            },
+            "program" : "barrel_dist",
+            "draw" : "DRAW_QUAD"
+        }
+    },
+    "sequence" : [
+                  "barrel"
+                  ],
+    "symbols" : {
+        "barrel_power" : {
+            "type" : "float"
+        },
+        "vertex_pos_symbol" : {
+            "semantic" : "vertex"
+        },
+        "mvp_mat_symbol" : {
+            "semantic" : "modelViewProjectionTransform"
+        }
+    }
+}

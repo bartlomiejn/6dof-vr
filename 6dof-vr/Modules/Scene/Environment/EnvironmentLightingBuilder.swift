@@ -11,7 +11,7 @@ import SceneKit
 struct EnvironmentLightingBuilder {
     
     func addLighting(to scene: SCNScene) {
-//        addAmbientLighting(to: scene)
+        addAmbientLighting(to: scene)
         addDirectionalLighting(to: scene)
     }
     
