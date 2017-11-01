@@ -1,0 +1,19 @@
+{
+    "passes" : {
+        "barrel" : {
+            "outputs" : { "color" : "COLOR" },
+            "inputs" : {
+                "color_sampler" : "COLOR",
+                "vertex_pos" : "vertex_pos_symbol"
+            },
+            "program" : "barrel_dist_mlsl",
+            "metalVertexShader" : "passthrough",
+            "metalFragmentShader" : "barrel_dist",
+            "draw" : "DRAW_QUAD"
+        }
+    },
+    "sequence" : ["barrel"],
+    "symbols" : {
+        "vertex_pos_symbol" : { "semantic" : "vertex" }
+    }
+}

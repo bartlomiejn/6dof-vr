@@ -23,10 +23,12 @@
 		9F8064951FA7A1C00077314A /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064941FA7A1C00077314A /* WeakReference.swift */; };
 		9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8064961FA7A2570077314A /* ArenaFieldNode.swift */; };
 		9FBB5C231FA7B6CB00467134 /* GazeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */; };
-		9FC84A321FA8B59000E5524D /* barrel_dist.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A311FA8B59000E5524D /* barrel_dist.fsh */; };
+		9FC84A321FA8B59000E5524D /* barrel_dist_glsl.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A311FA8B59000E5524D /* barrel_dist_glsl.fsh */; };
 		9FC84A351FA8B91A00E5524D /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC84A341FA8B91A00E5524D /* FileLoader.swift */; };
-		9FC84A371FA8BC5100E5524D /* barrel_dist.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A361FA8BC5100E5524D /* barrel_dist.json */; };
-		9FC84A391FA8BDBD00E5524D /* barrel_dist.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A381FA8BDBD00E5524D /* barrel_dist.vsh */; };
+		9FC84A371FA8BC5100E5524D /* barrel_dist_glsl.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A361FA8BC5100E5524D /* barrel_dist_glsl.json */; };
+		9FC84A391FA8BDBD00E5524D /* barrel_dist_glsl.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A381FA8BDBD00E5524D /* barrel_dist_glsl.vsh */; };
+		9FC84A3E1FAA6B5400E5524D /* barrel_dist_mlsl.metal in Sources */ = {isa = PBXBuildFile; fileRef = 9FC84A3D1FAA6B5400E5524D /* barrel_dist_mlsl.metal */; };
+		9FC84A3F1FAA73AE00E5524D /* barrel_dist_mlsl.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FC84A3C1FAA692700E5524D /* barrel_dist_mlsl.json */; };
 		9FEA5C481FA10926004E3E51 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C471FA10926004E3E51 /* MotionService.swift */; };
 		9FEA5C4C1FA23506004E3E51 /* EnvironmentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */; };
 		9FEA5C4E1FA23526004E3E51 /* EnvironmentLightingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */; };
@@ -65,10 +67,12 @@
 		9F8064941FA7A1C00077314A /* WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
 		9F8064961FA7A2570077314A /* ArenaFieldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaFieldNode.swift; sourceTree = "<group>"; };
 		9FBB5C221FA7B6CB00467134 /* GazeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazeTimer.swift; sourceTree = "<group>"; };
-		9FC84A311FA8B59000E5524D /* barrel_dist.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = barrel_dist.fsh; sourceTree = "<group>"; };
+		9FC84A311FA8B59000E5524D /* barrel_dist_glsl.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = barrel_dist_glsl.fsh; sourceTree = "<group>"; };
 		9FC84A341FA8B91A00E5524D /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
-		9FC84A361FA8BC5100E5524D /* barrel_dist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = barrel_dist.json; sourceTree = "<group>"; };
-		9FC84A381FA8BDBD00E5524D /* barrel_dist.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = barrel_dist.vsh; sourceTree = "<group>"; };
+		9FC84A361FA8BC5100E5524D /* barrel_dist_glsl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = barrel_dist_glsl.json; sourceTree = "<group>"; };
+		9FC84A381FA8BDBD00E5524D /* barrel_dist_glsl.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = barrel_dist_glsl.vsh; sourceTree = "<group>"; };
+		9FC84A3C1FAA692700E5524D /* barrel_dist_mlsl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = barrel_dist_mlsl.json; sourceTree = "<group>"; };
+		9FC84A3D1FAA6B5400E5524D /* barrel_dist_mlsl.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = barrel_dist_mlsl.metal; sourceTree = "<group>"; };
 		9FEA5C471FA10926004E3E51 /* MotionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionService.swift; sourceTree = "<group>"; };
 		9FEA5C4B1FA23506004E3E51 /* EnvironmentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentBuilder.swift; sourceTree = "<group>"; };
 		9FEA5C4D1FA23526004E3E51 /* EnvironmentLightingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentLightingBuilder.swift; sourceTree = "<group>"; };
@@ -233,9 +237,8 @@
 		9FC84A301FA8B53C00E5524D /* Barrel Distortion */ = {
 			isa = PBXGroup;
 			children = (
-				9FC84A311FA8B59000E5524D /* barrel_dist.fsh */,
-				9FC84A381FA8BDBD00E5524D /* barrel_dist.vsh */,
-				9FC84A361FA8BC5100E5524D /* barrel_dist.json */,
+				9FC84A3B1FAA691E00E5524D /* MLSL */,
+				9FC84A3A1FAA690F00E5524D /* GLSL */,
 			);
 			path = "Barrel Distortion";
 			sourceTree = "<group>";
@@ -246,6 +249,25 @@
 				9FC84A341FA8B91A00E5524D /* FileLoader.swift */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		9FC84A3A1FAA690F00E5524D /* GLSL */ = {
+			isa = PBXGroup;
+			children = (
+				9FC84A311FA8B59000E5524D /* barrel_dist_glsl.fsh */,
+				9FC84A381FA8BDBD00E5524D /* barrel_dist_glsl.vsh */,
+				9FC84A361FA8BC5100E5524D /* barrel_dist_glsl.json */,
+			);
+			path = GLSL;
+			sourceTree = "<group>";
+		};
+		9FC84A3B1FAA691E00E5524D /* MLSL */ = {
+			isa = PBXGroup;
+			children = (
+				9FC84A3C1FAA692700E5524D /* barrel_dist_mlsl.json */,
+				9FC84A3D1FAA6B5400E5524D /* barrel_dist_mlsl.metal */,
+			);
+			path = MLSL;
 			sourceTree = "<group>";
 		};
 		9FEA5C4A1FA234FC004E3E51 /* Environment */ = {
@@ -356,12 +378,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FC84A3F1FAA73AE00E5524D /* barrel_dist_mlsl.json in Resources */,
 				9F5E5C811F9CE72600AA6615 /* LaunchScreen.storyboard in Resources */,
-				9FC84A321FA8B59000E5524D /* barrel_dist.fsh in Resources */,
-				9FC84A371FA8BC5100E5524D /* barrel_dist.json in Resources */,
+				9FC84A321FA8B59000E5524D /* barrel_dist_glsl.fsh in Resources */,
+				9FC84A371FA8BC5100E5524D /* barrel_dist_glsl.json in Resources */,
 				9F5E5C7E1F9CE72600AA6615 /* Assets.xcassets in Resources */,
 				9F1C43AD1F9D00C900382370 /* Media.scnassets in Resources */,
-				9FC84A391FA8BDBD00E5524D /* barrel_dist.vsh in Resources */,
+				9FC84A391FA8BDBD00E5524D /* barrel_dist_glsl.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +404,7 @@
 			files = (
 				9F8064971FA7A2570077314A /* ArenaFieldNode.swift in Sources */,
 				9FBB5C231FA7B6CB00467134 /* GazeTimer.swift in Sources */,
+				9FC84A3E1FAA6B5400E5524D /* barrel_dist_mlsl.metal in Sources */,
 				9F0163F51FA4D62300E0ACF8 /* simd_quatf+AxisAngle.swift in Sources */,
 				9FEA5C541FA23743004E3E51 /* PlayerNode.swift in Sources */,
 				9F7863E81F9FBEAD00C73E1E /* World.swift in Sources */,

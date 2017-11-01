@@ -19,6 +19,11 @@ final class VRViewController: UIViewController {
         enum Distance {
             static let recognizerMultiplier: Float = 0.01
         }
+        
+        enum Shader {
+            static let glslFilename = "barrel_dist_glsl"
+            static let mlslFilename = "barrel_dist_mlsl"
+        }
     }
     
     private weak var leftSceneView: SCNView!
@@ -40,10 +45,10 @@ final class VRViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         let renderingApiKey = SCNView.Option.preferredRenderingAPI.rawValue
-        let openGLES2 = NSNumber(value: SCNRenderingAPI.openGLES2.rawValue)
+        let api = NSNumber(value: SCNRenderingAPI.metal.rawValue)
         
-        leftSceneView = SCNView(frame: .zero, options: [renderingApiKey: openGLES2])
-        rightSceneView = SCNView(frame: .zero, options: [renderingApiKey: openGLES2])
+        leftSceneView = SCNView(frame: .zero, options: [renderingApiKey: api])
+        rightSceneView = SCNView(frame: .zero, options: [renderingApiKey: api])
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -119,13 +124,11 @@ final class VRViewController: UIViewController {
     }
     
     private func setupBarrelDistortion() {
-        guard let dictionary = FileLoader().loadDictionary(fromJsonNamed: "barrel_dist"),
+        guard let dictionary = FileLoader().loadDictionary(fromJsonNamed: Constant.Shader.mlslFilename),
               let barrelDistortion = SCNTechnique(dictionary: dictionary) else {
             assertionFailure("Could not load technique dictionary.")
             return
         }
-        
-        barrelDistortion.setValue(NSNumber(value: 0.9), forKey: "barrel_power")
         
         leftSceneView.technique = barrelDistortion
         rightSceneView.technique = barrelDistortion

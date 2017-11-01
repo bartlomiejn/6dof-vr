@@ -64,7 +64,6 @@ final class ArenaNode: SCNNode {
         for (ix, weakRefArray) in nodes.enumerated() {
             for (iy, weakNode) in weakRefArray.enumerated() {
                 if let testedNode = weakNode.referee, node === testedNode {
-                    print("positionFor \(ix, iy)")
                     return positionFor(x: ix, y: iy)
                 }
             }

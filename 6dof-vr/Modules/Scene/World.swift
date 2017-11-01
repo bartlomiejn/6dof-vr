@@ -36,7 +36,7 @@ final class World {
         EnvironmentBuilder().populate(scene)
         EnvironmentLightingBuilder().addLighting(to: scene)
         
-        arena = ArenaNode(xCount: Constant.Arena.size.x, yCount: Constant.Arena.size.x)
+        arena = ArenaNode(xCount: Constant.Arena.size.x, yCount: Constant.Arena.size.y)
         arena.position = Constant.Arena.position
         scene.rootNode.addChildNode(arena)
         
