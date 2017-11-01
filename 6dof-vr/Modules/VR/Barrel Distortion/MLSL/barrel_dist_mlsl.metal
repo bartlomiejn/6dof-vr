@@ -10,7 +10,7 @@
 using namespace metal;
 #include <SceneKit/scn_metal>
 
-// MARK: - Vertex Passthrough
+// MARK: - Vertex - Passthrough
 
 struct VertexInput {
     float4 position [[attribute(SCNVertexSemanticPosition)]];
@@ -21,19 +21,22 @@ struct VertexOutput {
     float2 uv;
 };
 
-vertex VertexOutput passthrough(VertexInput vert [[stage_in]]) {
-    VertexOutput output_vert;
-    output_vert.position = vert.position;
-    output_vert.uv = float2((vert.position.x + 1.0) * 0.5, (-vert.position.y + 1.0) * 0.5);
-    return output_vert;
+vertex VertexOutput passthrough(VertexInput in_vert [[stage_in]]) {
+    VertexOutput out_vert;
+    out_vert.position = in_vert.position;
+    // Invert 180 degrees and correct viewport position
+    out_vert.uv = float2((in_vert.position.x + 1.0) * 0.5, (-in_vert.position.y + 1.0) * 0.5);
+    
+    return out_vert;
 }
 
-// MARK: - Barrel Distortion
+// MARK: - Fragment - Barrel Distortion
 
 constexpr sampler s = sampler(coord::normalized, address::clamp_to_edge, filter::linear);
 
-fragment half4 barrel_dist(VertexOutput vert [[stage_in]],
+fragment half4 barrel_dist(VertexOutput in_vert [[stage_in]],
                            texture2d<float, access::sample> color_sampler [[texture(0)]]) {
-    float4 fragment_color = color_sampler.sample(s, vert.uv);
+    
+    float4 fragment_color = color_sampler.sample(s, in_vert.uv);
     return half4(fragment_color);
 }
