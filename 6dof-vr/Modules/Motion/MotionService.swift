@@ -43,8 +43,7 @@ final class MotionService: MotionDataProvider {
             return
         }
         
-        // TODO: Temporarily switched off
-//        session.run(ARWorldTrackingConfiguration())
+        session.run(ARWorldTrackingConfiguration())
         
         motionManager.deviceMotionUpdateInterval = 1.0 / 120.0
         motionManager.startDeviceMotionUpdates()
