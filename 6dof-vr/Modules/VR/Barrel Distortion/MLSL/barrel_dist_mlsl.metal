@@ -41,26 +41,27 @@ fragment half4 barrel_dist(VertexOutput in_vert [[stage_in]],
     
     float aperture = 188.0;
     float partial_aperture = 0.5 * aperture * (M_PI_F / 180.0);
-    float max_factor = sin(partial_aperture);
+    float max_factor = fast::sin(partial_aperture);
 
     float2 uv;
     float2 xy = float2(in_vert.uv.x, in_vert.uv.y);
-
-    float d = length(xy);
+    half4 output_color;
+    
+    float d = fast::length(xy);
     if (d < (2.0 - max_factor)) {
-        d = length(xy * max_factor);
-        float z = sqrt(1.0 - d * d);
-        float r = atan2(d, z) / M_PI_F;
-        float phi = atan2(xy.y, xy.x);
+        d = fast::length(xy * max_factor);
+        float z = fast::sqrt(1.0 - d * d);
+        float r = fast::atan2(d, z) / M_PI_F;
+        float phi = fast::atan2(xy.y, xy.x);
 
-        uv.x = r * cos(phi) + 0.5;
-        uv.y = r * sin(phi) + 0.5;
+        uv.x = r * fast::cos(phi) + 0.5;
+        uv.y = r * fast::sin(phi) + 0.5;
+        
+        output_color = half4(color_sampler.sample(s, uv));
     } else {
         uv = float2(in_vert.uv.x, in_vert.uv.y);
+        output_color = half4(0, 0, 0, 0);
     }
-
-//    gl_FragColor = texture2D(color_sampler, uv);
     
-    float4 fragment_color = color_sampler.sample(s, uv);
-    return half4(fragment_color);
+    return half4(output_color);
 }
