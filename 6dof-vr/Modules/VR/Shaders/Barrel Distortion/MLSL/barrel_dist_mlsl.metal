@@ -25,8 +25,6 @@ vertex VertexOutput passthrough(VertexInput in_vert [[stage_in]]) {
     VertexOutput out_vert;
     
     out_vert.position = in_vert.position;
-    // Invert 180 degrees and correct viewport position
-//    out_vert.uv = float2((in_vert.position.x + 1.0) * 0.5, (-in_vert.position.y + 1.0) * 0.5);
     out_vert.uv = float2(in_vert.position.x, -in_vert.position.y);
     
     return out_vert;
@@ -34,7 +32,7 @@ vertex VertexOutput passthrough(VertexInput in_vert [[stage_in]]) {
 
 // MARK: - Fragment - Barrel Distortion
 
-constexpr sampler s = sampler(coord::normalized, address::clamp_to_edge, filter::linear);
+constexpr sampler tex_sampler(coord::normalized, address::clamp_to_edge, filter::linear);
 
 fragment half4 barrel_dist(VertexOutput in_vert [[stage_in]],
                            texture2d<float, access::sample> color_sampler [[texture(0)]]) {
@@ -57,7 +55,7 @@ fragment half4 barrel_dist(VertexOutput in_vert [[stage_in]],
         uv.x = r * fast::cos(phi) + 0.5;
         uv.y = r * fast::sin(phi) + 0.5;
         
-        output_color = half4(color_sampler.sample(s, uv));
+        output_color = half4(color_sampler.sample(tex_sampler, uv));
     } else {
         uv = float2(in_vert.uv.x, in_vert.uv.y);
         output_color = half4(0, 0, 0, 0);

@@ -11,6 +11,7 @@ void main() {
     
     vec2 uv;
     vec2 xy = vertex_uv.xy;
+    vec4 color;
     
     float d = length(xy);
     if (d < (2.0 - max_factor)) {
@@ -21,9 +22,12 @@ void main() {
         
         uv.x = r * cos(phi) + 0.5;
         uv.y = r * sin(phi) + 0.5;
+        
+        color = texture2D(color_sampler, uv);
     } else {
         uv = vertex_uv.xy;
+        color = vec4(0.0, 0.0, 0.0, 0.0);
     }
 
-    gl_FragColor = texture2D(color_sampler, uv);
+    gl_FragColor = color;
 }

@@ -21,8 +21,14 @@ final class VRViewController: UIViewController {
         }
         
         enum Shader {
-            static let glslFilename = "barrel_dist_glsl"
-            static let mlslFilename = "barrel_dist_mlsl"
+            enum BarrelDistortion {
+                static let glsl = "barrel_dist_glsl"
+                static let mlsl = "barrel_dist_mlsl"
+            }
+            
+            enum ScreenSpaceAmbientOcclusion {
+                static let mlsl = "ssao"
+            }
         }
     }
     
@@ -70,7 +76,7 @@ final class VRViewController: UIViewController {
         setup(rightSceneView)
         setupLayout()
         setupCamera()
-        setupBarrelDistortion()
+        setupPostProcessing()
         setupMovementPanRecognizer()
         startMotionUpdates()
     }
@@ -123,15 +129,16 @@ final class VRViewController: UIViewController {
             rightSceneView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
     }
     
-    private func setupBarrelDistortion() {
-        guard let dictionary = FileLoader().loadDictionary(fromJsonNamed: Constant.Shader.mlslFilename),
-              let barrelDistortion = SCNTechnique(dictionary: dictionary) else {
+    private func setupPostProcessing() {
+        let ssaoDictionary = FileLoader().loadDictionary(fromJsonNamed: Constant.Shader.ScreenSpaceAmbientOcclusion.mlsl)
+        
+        guard let technique = SCNTechnique(dictionary: ssaoDictionary ?? [:]) else {
             assertionFailure("Could not load technique dictionary.")
             return
         }
         
-        leftSceneView.technique = barrelDistortion
-        rightSceneView.technique = barrelDistortion
+        leftSceneView.technique = technique
+        rightSceneView.technique = technique
     }
     
     private func setupMovementPanRecognizer() {

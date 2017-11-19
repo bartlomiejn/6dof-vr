@@ -1,0 +1,28 @@
+{
+    "passes" : {
+        "ssao" : {
+            "inputs" : {
+                "color_sampler" : "COLOR",
+                "depth_sampler" : "DEPTH",
+                "normal_transform" : "normal_transform_sym",
+                "vertex_pos" : "vertex_pos_sym"
+            },
+            "outputs" : {
+                "color" : "COLOR"
+            },
+            "draw" : "DRAW_QUAD",
+            "program" : "ssao",
+            "metalVertexShader" : "passthrough",
+            "metalFragmentShader" : "screen_space_ambient_occlusion"
+        }
+    },
+    "sequence" : ["barrel"],
+    "symbols" : {
+        "vertex_pos_sym" : {
+            "semantic" : "vertex"
+        }
+        "normal_transform_sym" : {
+            "semantic" : "normalTransform"
+        }
+    }
+}
